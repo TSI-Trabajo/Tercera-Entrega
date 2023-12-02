@@ -1,0 +1,42 @@
+<odoo>
+  <record id="upobarber_reserva_form_view" model="ir.ui.view">
+    <field name="name">upobarber.reserva.form</field>
+    <field name="model">upobarber.reserva</field>
+    <field name="arch" type="xml">
+      <form string="Reserva">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="telefonoContacto" />
+            <field name="fechaReserva" />
+            <field name="cita_id" widget="one2many" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="upobarber_reserva_tree_view" model="ir.ui.view">
+    <field name="name">upobarber.reserva.tree</field>
+    <field name="model">upobarber.reserva</field>
+    <field name="arch" type="xml">
+      <tree string="tree_string">
+        <field name="name" />
+        <field name="telefonoContacto" />
+        <field name="fechaReserva" />
+        <field name="cita_id" widget="one2many" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="reserva_list_action" model="ir.actions.act_window">
+    <field name="name">Reserva</field>
+    <field name="res_model">upobarber.reserva</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Create the first user</p>
+    </field>
+  </record>
+
+  
+</odoo>

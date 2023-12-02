@@ -1,0 +1,79 @@
+<odoo>
+    <template id="upobarber_empleado_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <div class="oe_structure" />
+                        <div class="row" style="font-size: 24px; margin-bottom: 20px;">
+                            <span style="font-weight: bold; text-decoration: underline; ">EMPLEADO: </span>
+                            <span style="color: #999999;" t-field="o.nombre" />
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-8" style="text-align: left; margin: auto; padding-left: 15px; padding-top: 10px;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p>
+                                                <strong>Dni: </strong>
+                                            </p>
+                                            <p>
+                                                <strong>Apellidos: </strong>
+                                            </p>
+                                            <p>
+                                                <strong>Telefono: </strong>
+                                            </p>
+                                            <p>
+                                                <strong>Correo Electrónico: </strong>
+                                            </p>
+                                            <p>
+                                                <strong>Numero de Cuenta: </strong>
+                                            </p>
+                                        </td>
+                                        <td style="padding-left: 10px;">
+                                            <p t-field="o.name" />
+                                            <p t-field="o.apellidos" />
+                                            <p t-field="o.telefono" />
+                                            <p t-field="o.correoElectronico" />
+                                            <p t-field="o.numeroCuenta" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div t-if="o.horario_id" class="row" style="margin-top: 40px; font-weight: bold; font-size: 19px;">
+                            Horarios en los que trabaja  <span t-field="o.nombre" />
+                        </div>
+                        <div t-if="o.horario_id" id="trabaja_horarios" class="row" style="margin-top: 10px;">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha Inicio</th>
+                                        <th>Fecha Fin</th>
+                                        <th>Disponible</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.horario_id" t-as="hor">
+                                        <tr>
+                                            <td>
+                                                <p t-field="hor.horarioInicio" />
+                                            </td>
+                                            <td>
+                                                <p t-field="hor.horarioFin" />
+                                            </td>
+                                            <td>
+                                                <p t-field="hor.disponible" />
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

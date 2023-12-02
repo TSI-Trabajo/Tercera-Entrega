@@ -1,0 +1,69 @@
+<odoo>
+  <record id="upobarber_cita_form_view" model="ir.ui.view">
+    <field name="name">upobarber.cita.form</field>
+    <field name="model">upobarber.cita</field>
+    <field name="arch" type="xml">
+      <form string="cita">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="confirmada" />
+            <field name="pagado" />
+            <field name="cliente_id" widget="many2one" />
+            <field name="reserva_id" widget="many2one" />
+            <field name="horario_id" widget="One2many" />
+             <!-- <field name="pago_id" widget="One2one" />
+            <field name="reseña_id" widget="Many2one" />
+            <field name="tipo_Servicio" widget="Many2one" /> -->
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="upobarber_cita_tree_view" model="ir.ui.view">
+    <field name="name">upobarber.cita.tree</field>
+    <field name="model">upobarber.cita</field>
+    <field name="arch" type="xml">
+      <tree string="cita">
+        <field name="name" />
+        <field name="confirmada" />
+        <field name="pagado" />
+        <field name="cliente_id" widget="many2one" />
+        <field name="reserva_id" widget="many2one" />
+        <field name="horario_id" widget="One2many" />
+        <!--  <field name="pago_id" widget="One2one" />
+        <field name="reseña_id" widget="Many2one" />
+        <field name="tipo_Servicio" widget="Many2one" /> -->
+      </tree>
+    </field>
+  </record>
+
+  <record id="upobarber_cita_search_view" model="ir.ui.view">
+    <field name="name">upobarber.cita.search</field>
+    <field name="model">upobarber.cita</field>
+    <field name="arch" type="xml">
+      <search>
+        <filter name="filtrar_confirmadas" string="Citas Confirmadas" domain="[('confirmada', '=', 'True')]" />
+        <filter name="filtrar_pagadas" string="Citas Pagadas" domain="[('pagado', '=', 'True')]" />
+        <separator orientation="vertical" />
+        <group expand="0" string="Agrupar por">
+          <filter name="group_by_reserva" string="ID_Reserva" context="{'group_by':'reserva_id'}" />
+          <filter name="group_by_cliente" string="ID_Cliente" context="{'group_by':'cliente_id'}" />
+        </group> 
+     </search>
+    </field>
+  </record>
+
+  <record id="cita_list_action" model="ir.actions.act_window">
+        <field name="name">cita</field>
+        <field name="res_model">upobarber.cita</field>
+        <field name="search_view_id" ref="upobarber_cita_search_view"/>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Create the first user</p>
+        </field>
+   </record>
+    
+
+</odoo>

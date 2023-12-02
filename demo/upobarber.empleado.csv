@@ -1,0 +1,4 @@
+id,name,nombre,apellidos,telefono,correoElectronico,numeroCuenta,horario_id/id
+empleado0,"45789544Q","Jose","Lopez","623145698","joselopezguillen2003@gmail.com","ES-455555353",horario0
+empleado1,"21153150R","Jose Luis","Leal","671316234","joseluislealgarcia03@gmail.com","ES-655555353",horario1
+empleado2,"12345678M","Carlos","Marchante","666666666","carlosmarchante@gmail.com","ES-665555353",horario2

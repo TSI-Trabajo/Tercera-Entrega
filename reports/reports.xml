@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report id="action_upobarber_empleado_report" string="Report" model="upobarber.empleado" report_type="qweb-pdf" name="upobarber.upobarber_empleado_report" />    
+
+</odoo>

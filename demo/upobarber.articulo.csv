@@ -1,0 +1,9 @@
+id,name,precio,stock,producto_id:id
+articulo0,"Perfume Hombre HUGO BOSS",59.95,2,producto0
+articulo1,"Polvo de Volumen Portobello",9.99,15,producto1
+articulo2,"Cepillo de Paleta GHD",19.95,4,producto2
+articulo3,"Perfume Versace Eros",65.95,1,producto3
+articulo4,"Set de Regalo Calvin Klein",79.99,5,producto4
+articulo5,"Espuma Modeladora Schwarzkopf",12.50,10,producto5
+articulo6,"Secador de Pelo Profesional",89.95,3,producto6
+articulo7,"Kit de Peines de Estilo",29.99,8,producto7
