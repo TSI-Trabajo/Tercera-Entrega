@@ -1,0 +1,10 @@
+id,name,confirmada,pagado,cliente_id:id,reserva_id:id
+cita0,0,1,0,cliente0,reserva0
+cita1,1,1,1,cliente0,reserva0
+cita2,2,0,0,cliente1,reserva1
+cita3,3,1,0,cliente1,reserva1
+cita4,4,0,1,cliente1,reserva1
+cita5,5,0,0,cliente2,reserva0
+cita6,6,1,0,cliente3,reserva2
+cita7,7,0,1,cliente4,reserva3
+cita8,8,1,0,cliente4,reserva4

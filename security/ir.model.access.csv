@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+cliente_manager,cliente_manager,model_upobarber_cliente,group_upobarber_manager,1,1,1,1
+cita_manager,cita_manager,model_upobarber_cita,group_upobarber_manager,1,1,1,1
+reserva_manager,reserva_manager,model_upobarber_reserva,group_upobarber_manager,1,1,1,1

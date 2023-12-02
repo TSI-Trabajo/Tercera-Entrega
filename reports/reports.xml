@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report id="clientes_report" string="Ficha Cliente" model="upobarber.cliente" report_type="qweb-pdf" name="upobarber.upobarber_cliente_template" />
+    
+</odoo>
