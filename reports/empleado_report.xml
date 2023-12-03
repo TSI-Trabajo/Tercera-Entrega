@@ -7,7 +7,7 @@
                         <div class="oe_structure" />
                         <div class="row" style="font-size: 24px; margin-bottom: 20px;">
                             <span style="font-weight: bold; text-decoration: underline; ">EMPLEADO: </span>
-                            <span style="color: #999999;" t-field="o.nombre" />
+                            <span style="color: black;" t-field="o.nombre" />
                         </div>
                         <div class="row">
                             <div class="col-xs-8" style="text-align: left; margin: auto; padding-left: 15px; padding-top: 10px;">
@@ -45,26 +45,21 @@
                             Horarios en los que trabaja  <span t-field="o.nombre" />
                         </div>
                         <div t-if="o.horario_id" id="trabaja_horarios" class="row" style="margin-top: 10px;">
-                            <table class="table">
+                            <table class="table" style="border: 1px solid">
                                 <thead>
-                                    <tr>
-                                        <th>Fecha Inicio</th>
-                                        <th>Fecha Fin</th>
-                                        <th>Disponible</th>
-                                        
+                                    <tr style="border: 1px solid">
+                                        <th style="border: 1px solid">Fecha Inicio</th>
+                                        <th style="border: 1px solid">Fecha Fin</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <t t-foreach="o.horario_id" t-as="hor">
-                                        <tr>
-                                            <td>
+                                        <tr style="border: 1px solid">
+                                            <td style="border: 1px solid">
                                                 <p t-field="hor.horarioInicio" />
                                             </td>
-                                            <td>
+                                            <td style="border: 1px solid">
                                                 <p t-field="hor.horarioFin" />
-                                            </td>
-                                            <td>
-                                                <p t-field="hor.disponible" />
                                             </td>
                                         </tr>
                                     </t>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <report id="action_upobarber_empleado_report" string="Report" model="upobarber.empleado" report_type="qweb-pdf" name="upobarber.upobarber_empleado_report" />    
+    <report id="action_upobarber_empleado_report" string="Ficha Empleado" model="upobarber.empleado" report_type="qweb-pdf" name="upobarber.upobarber_empleado_report" />
+    <report id="clientes_report" string="Ficha Cliente" model="upobarber.cliente" report_type="qweb-pdf" name="upobarber.upobarber_cliente_template" />    
+    <report id="action_upobarber_cita_report" string="Ficha Citas" model="upobarber.cita" report_type="qweb-pdf" name="upobarber.upobarber_cita_report" />    
 
 </odoo>

@@ -25,6 +25,8 @@
         #cargar reports
         'reports/reports.xml',
         'reports/empleado_report.xml',
+        'reports/cliente_report.xml',
+        'reports/cita_report.xml',
         'views/horario_views.xml',
         'views/cita_views.xml',
         'views/empleado_views.xml',

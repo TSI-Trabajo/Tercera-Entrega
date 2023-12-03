@@ -1,6 +1,6 @@
-id,name,telefonoContacto,fechaReserva
-reserva0,"reserva0",123456789,2023-09-01
-reserva1,"reserva1",123456789,2023-09-02
-reserva2,"reserva2",123456789,2023-09-03
-reserva3,"reserva3",123456789,2023-09-04
-reserva4,"reserva4",123456789,2023-09-05
+id,name,telefonoContacto,fechaReserva,cliente_id:id
+reserva0,"reserva0",123456789,2023-09-01,cliente0
+reserva1,"reserva1",123456789,2023-09-02,cliente1
+reserva2,"reserva2",123456789,2023-09-03,cliente3
+reserva3,"reserva3",123456789,2023-09-04,cliente4
+reserva4,"reserva4",123456789,2023-09-05,cliente1
