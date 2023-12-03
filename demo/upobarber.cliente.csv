@@ -1,0 +1,6 @@
+id,name,nombre,apellidos,telefono,correoElectronico,foto
+cliente0,"77852297A","Carlos","Marchante Caballero",123456780,"carlos@gmail.com",
+cliente1,"77852297B","Pepe","Diaz Soler",123456781,"pepe@gmail.com",
+cliente2,"77852297C","Arturo","Kipling Hugian",123456782,"arturo@gmail.com",
+cliente3,"77852297D","Jose","Sorbet Mini",123456783,"jose@gmail.com",
+cliente4,"77852297E","Aurelio","Diano Maximo",123456784,"aurelio@gmail.com",

@@ -1,0 +1,51 @@
+<odoo>
+    <template id="upobarber_cliente_template">
+        <t t-call="web.html_container">
+            <div class="titulo" style="font-size: 50px;font-weight: bold; margin-bottom: 20px;">
+                <p> Ficha de Cliente: </p>
+            </div>
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">                    <!-- Probad tambien con web.internal_layout -->
+                    <div class="report">
+                        <div class="oe_structure" />
+                        <div class="primero" style="font-size: 24px; margin-bottom: 20px;">
+                            <span style="font-weight: bold; text-decoration: underline; "> Nombre Completo: </span>
+                            <span style="color: #999999;" t-field="o.nombre" />
+                            <span style="color: #999999;" t-field="o.apellidos" />
+                        </div>
+                        <div class="segundo">
+                            <div class="col-xs-2" style="margin: auto; text-align: right; margin-rigth: 30px ; ">
+                                <p style="padding-top: 10px;">
+                                    <img t-if="not o.foto" t-att-src="'/web/static/src/img/placeholder.png'" height="250" border="1" width="250" />
+                                    <img t-if="o.foto" t-att-src="'data:image/png; base64,%s' % to_text(o.foto)" height="250" border="1" width="250" />
+                                </p>
+                            </div>
+                            <div class="col-xs-8" style="text-align: left; margin: auto; padding-left: 15px; padding-top: 100px;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p>
+                                                <strong> DNI: </strong>
+                                            </p>
+                                            <p>
+                                                <strong>Telefono: </strong>
+                                            </p>
+                                            <p>
+                                                <strong>Correo Electronico: </strong>
+                                            </p>
+                                        </td>
+                                        <td style="padding-left: 7px;">
+                                            <p t-field="o.name" />
+                                            <p t-field="o.telefono" />
+                                            <p t-field="o.correoElectronico" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

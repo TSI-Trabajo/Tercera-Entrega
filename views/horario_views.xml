@@ -1,0 +1,76 @@
+<odoo>
+  <record id="upobarber_horario_form_view" model="ir.ui.view">
+    <field name="name">upobarber.horario.form</field>
+    <field name="model">upobarber.horario</field>
+    <field name="arch" type="xml">
+      <form string="Horario">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="horarioInicio" />
+            <field name="horarioFin" />
+            <field name="disponible" />
+            <field name="empleado_dnis" widget="many2one" />
+            <field name="cita_ids" widget="many2one" />
+            <newline></newline>
+            <button name="btn_ocupar_horario" string="Disponible" type="object" class="oe_highlight" />
+            <button name="btn_desocupar_horario" string="No disponible" type="object" class="oe_highlight" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="upobarber_horario_tree_view" model="ir.ui.view">
+    <field name="name">upobarber.horario.tree</field>
+    <field name="model">upobarber.horario</field>
+    <field name="arch" type="xml">
+      <tree string="tree_string">
+            <field name="name" />
+            <field name="horarioInicio" />
+            <field name="horarioFin" />
+            <field name="disponible" />
+            <field name="empleado_dnis" widget="many2one" />
+            <field name="cita_ids" widget="many2one" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="upobarber_horario_calendar_view" model="ir.ui.view">
+    <field name="name">Horario</field>
+    <field name="model">upobarber.horario</field>
+    <field name="type">calendar</field>
+    <field name="arch" type="xml">
+      <calendar string="vista de calendario" quick_add="False" date_start="horarioInicio" date_stop="horarioFin" mode="week" color="empleado_dnis">
+        <field name="cita_ids"/>
+        <field name="empleado_dnis"></field>
+      </calendar>
+    </field>
+  </record>
+
+  <record id="upobarber_horario_view_search" model="ir.ui.view">
+    <field name="name">upobarber.horario.view.search</field>
+    <field name="model">upobarber.horario</field>
+    <field name="arch" type="xml">
+      <search string="Search">
+        <filter name="no_disponible" string="No disponible" domain="[('disponible', '!=', 'True')]"/>
+        <filter name="disponible" string="Disponible" domain="[('disponible', '=', 'True')]"/>
+        <separator/>
+        <group expand="0" string="group_by">
+          <filter name="group_by_empleado_dnis" string="Por Dni" context="{'group_by': 'empleado_dnis'}" />
+        </group>
+      </search>
+    </field>
+  </record>
+
+     <!-- Define la acción de lista para el modelo "upobarber.horario" -->
+  <record id="horario_list_action" model="ir.actions.act_window">
+    <field name="name">Horario</field>
+    <field name="res_model">upobarber.horario</field>
+    <field name="view_mode">calendar,tree,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Cree el primer horario</p>
+    </field>
+  </record>
+
+</odoo>

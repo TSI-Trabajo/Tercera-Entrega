@@ -1,0 +1,46 @@
+<odoo>
+  <record id="upobarber_pago_form_view" model="ir.ui.view">
+    <field name="name">upobarber.pago.form</field>
+    <field name="model">upobarber.pago</field>
+    <field name="arch" type="xml">
+      <form string="Pago">
+        <sheet layout="auto">
+          <group>
+            <!--<field name="idPago" />-->
+            <field name="metodo_id"/>
+            <field name="importe" />
+            <field name="pagado" />
+            <!--<field name="idCita"/>-->
+            <!--<field name="idCompra"/>-->
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="upobarber_pago_tree_view" model="ir.ui.view">
+    <field name="name">upobarber.pago.tree</field>
+    <field name="model">upobarber.pago</field>
+    <field name="arch" type="xml">
+      <tree string="tree_string">
+            <!--<field name="idPago" />-->
+            <field name="metodo_id"/>
+            <field name="importe" />
+            <field name="pagado" />
+            <!--<field name="idCita"/>-->
+            <!--<field name="idCompra"/>-->
+      </tree>
+    </field>
+  </record>
+
+    <record id="pago_list_action" model="ir.actions.act_window">
+    <field name="name">Pago</field>
+    <field name="res_model">upobarber.pago</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Realizar Pago</p>
+    </field>
+  </record>
+
+
+</odoo>
