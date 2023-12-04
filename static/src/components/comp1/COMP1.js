@@ -8,7 +8,7 @@ class COMP1Componente extends Component {
     setup() {
         this.state = useState({
             taskList:[],
-            isEdit: false,
+            isEdit: true,
             activeId: false,
         })
         this.orm = useService("orm")
