@@ -1,0 +1,9 @@
+id,name,marca,modelo,foto,tipoproducto_id/id
+producto0,"Perfume HUGO BOSS","HUGO BOSS","Boss Botled",,tipoproducto0
+producto1,"Polvo de Volumen Portobello","Portobello","Sandia",,tipoproducto1
+producto2,"Cepillo de Paleta GHD","GHD","Hair Brush Pad",,tipoproducto2
+producto3,"Perfume Versace Eros","Versace","Eros",,tipoproducto0
+producto4,"Perfume Calvin Klein","Calvin Klein","Eternity",,tipoproducto0
+producto5,"Cera para el Pelo Schwarzkopf","Schwarzkopf","Got2b",,tipoproducto1
+producto6,"Secador de Pelo Profesional","Remington","Salon Turbo",,tipoproducto2
+producto7,"Kit de Peines de Estilo","Uppercut Deluxe","Styling Set",,tipoproducto2

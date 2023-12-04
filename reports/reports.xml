@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report id="report_productos" string="Report de Producto" model="upobarber.producto" report_type="qweb-pdf" name="upobarber.report_producto" />
+    <report id="report_articulos" string="Report de Articulo" model="upobarber.articulo" report_type="qweb-pdf" name="upobarber.report_articulo" />
+    <report id="report_articulos_graph" string="Report de Gráfico Articulo" model="upobarber.articulo" report_type="qweb-pdf" name="upobarber.report_articulo_graph" />
+</odoo>

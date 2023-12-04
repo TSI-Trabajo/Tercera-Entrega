@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+articulo_manager,articulo_manager,model_upobarber_articulo,group_upobarber_manager,1,1,1,1
+producto_manager,producto_manager,model_upobarber_producto,group_upobarber_manager,1,1,1,1
+tipoproducto_manager,tipoproducto_manager,model_upobarber_tipoproducto,group_upobarber_manager,1,1,1,1
