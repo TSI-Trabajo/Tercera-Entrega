@@ -7,13 +7,11 @@ import { useService } from "@web/core/utils/hooks";
 class COMP1Componente extends Component {
     setup() {
         this.state = useState({
-            task:{name:"", precio:"0.0", stock:"0"},
             taskList:[],
             isEdit: false,
             activeId: false,
         })
         this.orm = useService("orm")
-        this.model = "upobarber.articulo"
         this.searchInput = useRef("search-input")
 
         onWillStart(async ()=>{
@@ -22,7 +20,7 @@ class COMP1Componente extends Component {
     }
 
     async getAllTasks(){
-        this.state.taskList = await this.orm.searchRead(this.model, [], ["name", "precio", "stock"])
+        this.state.taskList = await this.orm.searchRead(this.model, [], )
     }
 
     addTask(){
@@ -51,7 +49,7 @@ class COMP1Componente extends Component {
     }
 
     resetForm(){
-        this.state.task = {name:"", precio:"0.0", stock:"0"}
+        this.state.task = {name:""}
     }
 
     async deleteTask(task){
@@ -61,7 +59,6 @@ class COMP1Componente extends Component {
 
     async searchTasks(){
         const text = this.searchInput.el.value
-        this.state.taskList = await this.orm.searchRead(this.model, [['name','ilike',text]], ["name", "precio", "stock"])
     }
 
     async updatePrecio(e, task){

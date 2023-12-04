@@ -49,12 +49,6 @@
         'demo/upobarber.producto.csv',
         'demo/upobarber.articulo.csv',    
     ],
-    'assets':{
-        'web.assets_backend': [
-            'upobarber/static/src/components/*/*.js',
-            'upobarber/static/src/components/*/*.xml',
-            'upobarber/static/src/components/*/*.scss',
-    	],
-    },
+  
     'application': True,
 }
