@@ -9,7 +9,7 @@ class COMP1Componente extends Component {
         this.state = useState({
             taskList:[],
             isEdit: true,
-            activeId: false,
+            activeId: true,
         })
         this.orm = useService("orm")
         this.searchInput = useRef("search-input")
