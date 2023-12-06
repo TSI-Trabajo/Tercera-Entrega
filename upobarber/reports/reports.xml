@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="upobarber_compra_report" model="ir.actions.report">
+        <field name="name">Compra</field>
+        <field name="model">upobarber.compra</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">upobarber.upobarber_compra_template</field>
+        <field name="binding_model_id" ref="model_upobarber_compra"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="upobarber_pago_report" model="ir.actions.report">
+        <field name="name">Pago</field>
+        <field name="model">upobarber.pago</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">upobarber.upobarber_pago_template</field>
+        <field name="binding_model_id" ref="model_upobarber_pago"/>
+        <field name="binding_type">report</field>
+    </record>
+    
+    <report id="report_productos" string="Report de Producto" model="upobarber.producto" report_type="qweb-pdf" name="upobarber.report_producto" />
+    <report id="report_productos_graph" string="Report de Gráfico Producto" model="upobarber.producto" report_type="qweb-pdf" name="upobarber.report_producto_graph" />
+    <report id="report_articulos" string="Report de Articulo" model="upobarber.articulo" report_type="qweb-pdf" name="upobarber.report_articulo" />
+    <report id="report_articulos_graph" string="Report de Gráfico Articulo" model="upobarber.articulo" report_type="qweb-pdf" name="upobarber.report_articulo_graph" />
+    <report id="report_tipoproductos" string="Report de Tipos de Producto" model="upobarber.tipoproducto" report_type="qweb-pdf" name="upobarber.report_tipoproducto" />
+    <report id="report_tipoproductos_graph" string="Report de Gráfico Tipo Articulo" model="upobarber.tipoproducto" report_type="qweb-pdf" name="upobarber.report_tipoproducto_graph" />
+
+</odoo>

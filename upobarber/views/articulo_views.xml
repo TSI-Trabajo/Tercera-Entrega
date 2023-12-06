@@ -1,0 +1,105 @@
+<odoo>
+    <record id="upobarber_articulo_form_view" model="ir.ui.view">
+        <field name="name">upobarber.articulo.form</field>
+        <field name="model">upobarber.articulo</field>
+        <field name="arch" type="xml">
+            <form string="Articulo">
+
+                <header>
+                    <button name="btn_generate_report" string="Generar informe" type="object" class="oe_highlight" />
+                    <button name="btn_generate_report_graph" string="Generar informe Gráfico" type="object" class="oe_highlight" />
+                </header>
+
+                <sheet layout="auto">
+                    <group>
+                        <field name="name"/>
+                        <field name="precio" widget="monetary"/>
+                        <field name="stock"/>
+                        <field name="producto_id" widget="many2one"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="upobarber_articulo_tree_view" model="ir.ui.view">
+        <field name="name">upobarber.articulo.tree</field>
+        <field name="model">upobarber.articulo</field>
+        <field name="arch" type="xml">
+            <tree string="tree_string">
+                <field name="name"/>
+                <field name="precio" widget="monetary"/>
+                <field name="stock"/>
+                <field name="producto_id" widget="many2one"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="upobarber_articulo_graph">
+        <field name="name">upobarber.articulo.graph</field>
+        <field name="model">upobarber.articulo</field>
+        <field name="arch" type="xml">
+            <graph string="Stock de Articulos" type="bar">
+                <field name="name" type="row"/>
+                <field name="stock" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="upobarber_articulo_search_view" model="ir.ui.view">
+        <field name="name">upobarber.articulo.search</field>
+        <field name="model">upobarber.articulo</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter name="search_stock" string="Sin Stock" domain="[('stock','=',0)]" />
+                <separator orientation="vertical" />
+
+                <filter name="search_a_agotarse" string="A punto de agotarse" domain="[('stock','&lt;',3)]" />
+                <separator orientation="vertical" />
+
+            </search>
+        </field>
+    </record>
+
+    <record id="upobarber_articulo_kanban_view" model="ir.ui.view">
+        <field name="name">upobarber.articulo.kanban</field>
+        <field name="model">upobarber.articulo</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="precio"/>
+                <field name="stock"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                    Precio: <field name="precio"/>
+                                </div>
+                                <div>
+                                    Stock: <field name="stock"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="articulo_list_action" model="ir.actions.act_window">
+        <field name="name">Articulo</field>
+        <field name="res_model">upobarber.articulo</field>
+        <field name="search_view_id" ref="upobarber_articulo_search_view"/>
+        <field name="view_mode">tree,form,kanban,graph</field>
+        <field name="view_id" ref="upobarber_articulo_kanban_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Crea el primer Articulo</p>
+        </field>
+    </record>
+
+</odoo>
+

@@ -1,0 +1,75 @@
+<odoo>
+    <record id="upobarber_tipoproducto_form_view" model="ir.ui.view">
+        <field name="name">upobarber.tipoproducto.form</field>
+        <field name="model">upobarber.tipoproducto</field>
+        <field name="arch" type="xml">
+            <form string="Tipo Producto">
+
+                <header>
+                    <button name="btn_generate_report" string="Generar informe" type="object" class="oe_highlight" />
+                </header>
+
+                <sheet layout="auto">
+                    <notebook>
+                        <page name="datos_tipoproducto" string="Tipo Producto">
+                            <group>
+                                <field name="name"/>
+                                <field name="nombre"/>
+                            </group>
+                        </page>
+                        <page name="producto" string="Producto">
+                            <field name="producto_ids" widget="one2many" />
+                        </page>
+                    </notebook>
+                    <button name="btn_eliminarProductos" string="Eliminar productos" type="object" class="oe_highlight" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="upobarber_tipoproducto_tree_view" model="ir.ui.view">
+        <field name="name">upobarber.tipoproducto.tree</field>
+        <field name="model">upobarber.tipoproducto</field>
+        <field name="arch" type="xml">
+            <tree string="tree_string">
+                <field name="name"/>
+                <field name="nombre"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="upobarber_tipoproducto_kanban_view" model="ir.ui.view">
+        <field name="name">upobarber.tipoproducto.kanban</field>
+        <field name="model">upobarber.tipoproducto</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="nombre"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                    Nombre: <field name="nombre"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="tipoproducto_list_action" model="ir.actions.act_window">
+        <field name="name">Tipo Producto</field>
+        <field name="res_model">upobarber.tipoproducto</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="upobarber_tipoproducto_kanban_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Crea el primer Tipo Producto</p>
+        </field>
+    </record>
+</odoo>

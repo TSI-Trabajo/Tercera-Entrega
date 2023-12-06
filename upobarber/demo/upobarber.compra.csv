@@ -1,0 +1,6 @@
+id,name,importe,fechaCompra,pago_id:id
+compra00,"compra00",15.50,2021-10-12 12:00:00,pago00
+compra01,"compra01",27.00,2021-11-14 12:23:19,pago01
+compra02,"compra02",20.50,2022-04-07 20:30:00,pago02
+compra03,"compra03",45.00,2022-06-14 12:20:00,pago03
+compra04,"compra04",7.50,2023-11-15 12:00:00,pago04

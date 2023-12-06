@@ -1,0 +1,100 @@
+<odoo>
+    <record id="upobarber_producto_form_view" model="ir.ui.view">
+        <field name="name">upobarber.producto.form</field>
+        <field name="model">upobarber.producto</field>
+        <field name="arch" type="xml">
+            <form string="Producto">
+                
+                <header>
+                    <button name="btn_generate_report" string="Generar informe" type="object" class="oe_highlight" />
+                </header>
+                
+                <sheet layout="auto">
+                    <notebook>
+                        <page name="datos_producto" string="Info">
+                            <group>
+                                <field name="name"/>
+                                <field name="marca"/>
+                                <field name="modelo"/>
+                                <field name="foto" widget="image" options='{"size": [150, 150]}'/>
+                                <field name="tipoproducto_id" widget="many2one"/>
+                            </group>
+                        </page>
+                        <page name= "articulo" string="Articulo">
+                            <field name="articulo_ids" widget="one2many"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="upobarber_producto_tree_view" model="ir.ui.view">
+        <field name="name">upobarber.producto.tree</field>
+        <field name="model">upobarber.producto</field>
+        <field name="arch" type="xml">
+            <tree string="Lista de Productos">
+                <field name="name"/>
+                <field name="marca"/>
+                <field name="modelo"/>
+                <field name="tipoproducto_id" widget="selection"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="upobarber_producto_search_view" model="ir.ui.view">
+        <field name="name">upobarber.producto.search</field>
+        <field name="model">upobarber.producto</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_tipoproducto_id" string="Tipo de Producto" context="{'group_by': 'tipoproducto_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="upobarber_producto_kanban_view" model="ir.ui.view">
+        <field name="name">upobarber.producto.kanban</field>
+        <field name="model">upobarber.producto</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="marca"/>
+                <field name="modelo"/>
+                <field name="foto"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                Marca: <field name="marca"/>
+                                </div>
+                                <div>
+                                Modelo: <field name="modelo"/>
+                                </div>
+                                <div>
+                                Foto: <field name="foto"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="producto_list_action" model="ir.actions.act_window">
+        <field name="name">Producto</field>
+        <field name="res_model">upobarber.producto</field>
+        <field name="search_view_id" ref="upobarber_producto_search_view"/>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="upobarber_producto_kanban_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Crea el primer Producto</p>
+        </field>
+    </record>
+</odoo>
