@@ -1,0 +1,6 @@
+id,name,pagado,concepto,metodo_id:id
+pago00,"pago00",False,"Corte de cabello",metodo0
+pago01,"pago01",False,"Polvos",metodo1
+pago02,"pago02",True,"Corte de cabello más barba",metodo1
+pago03,"pago03",True,"Perfume Hugo Boss",metodo0
+pago04,"pago04",True,"Corte de barba",metodo1
