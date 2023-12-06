@@ -12,3 +12,9 @@ class TipoProducto(models.Model):
     producto_ids = fields.One2many('upobarber.producto', 'tipoproducto_id', string="Producto")
     
     _sql_constraints = [('tipoproducto_name_unique','UNIQUE (name)','El Tipo de producto ya existe')]
+    
+    def btn_eliminarProductos(self):
+          self.write({'producto_ids':[(5,)]})
+          
+    def btn_generate_report(self):
+          return self.env.ref('upobarber.report_tipoproductos').report_action(self)

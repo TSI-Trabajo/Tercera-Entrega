@@ -1,7 +1,6 @@
 <odoo>
-    <template id="report_articulo">
+    <template id="report_tipoproducto">
         <t t-call="web.html_container">
-            <t t-call="web.basic_layout"></t>
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.internal_layout">  
                     <div class="page">
@@ -16,13 +15,10 @@
                                     <thead style="text-align:center;  background-color: #f2f2f2;">
                                         <tr style="border: 2px solid #cccccc;">
                                             <th style="border: 2px solid #cccccc; text-align: center;">
-                                                <strong>ID</strong>
+                                                <strong>Tipo de Producto</strong>
                                             </th>
                                             <th style="border: 2px solid #cccccc; text-align: center;">
-                                                <strong>Precio</strong>
-                                            </th>
-                                            <th style="border: 2px solid #cccccc; text-align: center;">
-                                                <strong>Stock</strong>
+                                                <strong>Nombre</strong>
                                             </th>
                                         </tr>
                                     </thead>
@@ -32,10 +28,7 @@
                                                 <p t-field="o.name" />
                                             </td>
                                             <td style="border: 2px solid #cccccc; text-align: center;">
-                                                <p><span t-field="o.precio" /> €</p>
-                                            </td>
-                                            <td style="border: 2px solid #cccccc; text-align: center;">
-                                                <p t-field="o.stock" />
+                                                <p t-field="o.nombre" />
                                             </td>
                                         </tr>
                                     </tbody>
@@ -48,35 +41,31 @@
         </t>
     </template>
 
-    <template id="report_articulo_graph">
+    <template id="report_tipoproducto_graph">
         <t t-call="web.html_container">
             <t t-call="web.internal_layout">
                 <div class="page">
                     <div class="oe_structure" />
                     <div class="row" style="margin-top: 40px; font-weight: bold; font-size: 19px;">
-                        <span style="font-weight: bold; ">Articulo(s):</span>
+                        <span style="font-weight: bold; ">Tipos de Producto(s):</span>
 
                     </div>
-                    <div id="articulos" class="row" style="margin-top: 10px;">
+                    <div id="tipoproductos" class="row" style="margin-top: 10px;">
                         <table class="table" style="border-collapse: collapse; width: 100%; border: 2px solid #cccccc; margin: auto;" align="center">
                             <thead style="text-align:center;  background-color: #f2f2f2;">
                                 <tr style="border: 2px solid #cccccc;">
-                                    <th style="border: 2px solid #cccccc; text-align: center;">ID</th>
-                                    <th style="border: 2px solid #cccccc; text-align: center;">Precio</th>
-                                    <th style="border: 2px solid #cccccc; text-align: center;">Stock</th>
+                                    <th style="border: 2px solid #cccccc; text-align: center;">Tipo de Producto</th>
+                                    <th style="border: 2px solid #cccccc; text-align: center;">Nombre</th>
                                 </tr>
                             </thead>
                             <tbody style="text-align:center;">
-                                <t t-foreach="docs" t-as="articulo">
+                                <t t-foreach="docs" t-as="tipoproducto">
                                     <tr style="border: 2px solid #cccccc;">
                                         <td style="border: 2px solid #cccccc; text-align: center;">
-                                            <p t-field="articulo.name" />
+                                            <p t-field="tipoproducto.name" />
                                         </td>
                                         <td style="border: 2px solid #cccccc; text-align: center;">
-                                            <p><span t-field="articulo.precio" /> €</p>
-                                        </td>
-                                        <td style="border: 2px solid #cccccc; text-align: center;">
-                                            <p t-field="articulo.stock" />
+                                            <p t-field="tipoproducto.nombre" />
                                         </td>
                                     </tr>
                                 </t>

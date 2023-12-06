@@ -25,6 +25,7 @@
         'reports/reports.xml',
         'reports/producto_report.xml',
         'reports/articulo_report.xml',
+        'reports/tipoproducto_report.xml',
         #'views/horario_views.xml',
         #'views/cita_views.xml',
         #'views/empleado_views.xml',
@@ -49,6 +50,6 @@
         'demo/upobarber.producto.csv',
         'demo/upobarber.articulo.csv',    
     ],
-  
+   
     'application': True,
 }

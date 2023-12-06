@@ -101,10 +101,5 @@
         </field>
     </record>
 
-    <record id="action_owl_COMP1Componente_js" model="ir.actions.client">
-        <field name="name">COMP1Componente OWL</field>
-        <field name="tag">owl.action_COMP1Componente_js</field>
-    </record>
-
 </odoo>
 

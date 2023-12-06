@@ -4,6 +4,11 @@
         <field name="model">upobarber.tipoproducto</field>
         <field name="arch" type="xml">
             <form string="Tipo Producto">
+
+                <header>
+                    <button name="btn_generate_report" string="Generar informe" type="object" class="oe_highlight" />
+                </header>
+
                 <sheet layout="auto">
                     <notebook>
                         <page name="datos_tipoproducto" string="Tipo Producto">
@@ -16,6 +21,7 @@
                             <field name="producto_ids" widget="one2many" />
                         </page>
                     </notebook>
+                    <button name="btn_eliminarProductos" string="Eliminar productos" type="object" class="oe_highlight" />
                 </sheet>
             </form>
         </field>
