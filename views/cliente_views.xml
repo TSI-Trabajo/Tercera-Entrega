@@ -1,0 +1,112 @@
+<odoo>
+
+<record id="upobarber_cliente_form_view" model="ir.ui.view">
+    <field name="name">upobarber.cliente.form</field>
+    <field name="model">upobarber.cliente</field>
+    <field name="arch" type="xml">
+      <form string="Cliente">
+        <sheet layout="auto">
+          <group>
+            <field name="name" string="ID Cliente" /> 
+          </group>
+          <notebook>
+            <page name="datos_personales" string="Datos personales Cliente" >
+              <group>
+                <field name="nombre" />
+                <field name="apellidos" />
+                <field name="name" string="DNI"/>
+                <field name="telefono" />
+                <field name="correoElectronico" />
+                <field name="foto" />
+              </group>
+            </page>
+            <page name="citas" string="Citas">
+              <group>
+                <field name="cita_id" widget="one2many" />
+                <newline></newline>
+                <button name="btn_verCitasPagadas" string="Ver Citas Pagadas" type="object" class="oe_highlight" /> 
+              </group>
+            </page>
+            <page name="reservas" string="Reservas">
+              <group>
+                <field name="reserva_id" widget="one2many" />
+              </group>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+</record>
+
+<record id="upobarber_cliente_tree_view" model="ir.ui.view">
+  <field name="name">upobarber.cliente.tree</field>
+  <field name="model">upobarber.cliente</field>
+  <field name="arch" type="xml">
+    <tree string="tree_string">
+      <field name="name" />
+      <field name="nombre" />
+      <field name="apellidos" />
+      <field name="telefono" />
+      <field name="correoElectronico" />
+      <field name="foto" />
+      <field name="cita_id" widget="one2many" />
+      <field name="reserva_id" widget="one2many" />
+      <!--<field name="compra_id" widget="many2one" />-->
+    </tree>
+  </field>
+</record>
+
+
+<record id="upobarber_cliente_kanban_view" model="ir.ui.view">
+<field name="name">upobarber.cliente.kanban</field>
+<field name="model">upobarber.cliente</field>
+<field name="arch" type="xml">
+  <kanban>
+    <field name="name" />
+    <field name="nombre" />
+    <field name="apellidos" />
+    <field name="telefono" />
+    <field name="correoElectronico" />
+    <field name="foto" />
+    <templates>
+      <t t-name="kanban-box">
+        <div class="oe_kanban_global_click">
+          <div class="oe_kanban_details">
+            <strong>
+              <field name="name"/>
+            </strong>
+            <div>
+                  Nombre: <field name="nombre"/>
+            </div>
+            <div>
+                  Apellidos: <field name="apellidos"/>
+            </div>
+            <div>
+                  Teléfono: <field name="telefono"/>
+            </div>
+            <div>
+                  Correo: <field name="correoElectronico"/>
+            </div>
+            <!--<div>
+                  Foto: <field name="foto" widget="image" options='{"preview_image": false}'/>
+                </div>-->
+          </div>
+        </div>
+      </t>
+    </templates>
+  </kanban>
+</field>
+</record>
+
+<!-- Define la acción de lista para el modelo "upobarber.cliente" -->
+<record id="cliente_list_action" model="ir.actions.act_window">
+  <field name="name">Cliente</field>
+  <field name="res_model">upobarber.cliente</field>
+  <field name="view_mode">tree,form,kanban</field>
+  <field name="view_id" ref="upobarber_cliente_kanban_view"/>
+  <field name="help" type="html">
+    <p class="o_view_nocontent_smiling_face">Crea el primer cliente</p>
+  </field>
+</record>
+
+</odoo>

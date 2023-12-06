@@ -1,0 +1,40 @@
+<odoo>
+  <record id="upobarber_compra_form_view" model="ir.ui.view">
+    <field name="name">upobarber.compra.form</field>
+    <field name="model">upobarber.compra</field>
+    <field name="arch" type="xml">
+      <form string="Compra">
+        <sheet layout="auto">
+          <group>
+            <!--<field name="idCompra" />-->
+            <!--<field name="idPago"/>-->
+            <!--<field name="dniCliente"/>-->
+            <field name="importe" />
+            <field name="fechaCompra" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="upobarber_compra_tree_view" model="ir.ui.view">
+    <field name="name">upobarber.compra.tree</field>
+    <field name="model">upobarber.compra</field>
+    <field name="arch" type="xml">
+      <tree string="Compra">
+            <!--<field name="idCompra" />-->
+            <!--<field name="idPago"/>-->
+            <!--<field name="dniCliente"/>-->
+            <field name="importe" />
+            <field name="fechaCompra" />
+      </tree>
+    </field>
+  </record>
+  <record id="compra_list_action" model="ir.actions.act_window">
+    <field name="name">Compra</field>
+    <field name="res_model">upobarber.compra</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Compra</p>
+    </field>
+</record>
+</odoo>

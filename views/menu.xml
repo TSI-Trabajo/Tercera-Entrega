@@ -1,0 +1,32 @@
+<odoo>
+  <!-- Top menu item -->
+  <menuitem name="UpoBarber" id="main_upobarber_menu" groups="group_upobarber_manager"/>
+
+  <!-- menu categories -->
+  <menuitem name="Categorías" id="upobarber_menu" groups="group_upobarber_manager" parent="main_upobarber_menu"/>
+
+  <menuitem name="Clientes" id="clientess_menu" parent="upobarber_menu" groups="group_upobarber_manager">
+    <menuitem name="Cliente" id="cliente_menu" groups="group_upobarber_manager" action="cliente_list_action"/>
+  </menuitem>
+
+  <menuitem name="Citas y Reservas" id="citas_reservas_menu" parent="upobarber_menu" groups="group_upobarber_manager">
+    <menuitem name="Cita" id="cita_menu" groups="group_upobarber_manager" action="cita_list_action"/>
+    <menuitem name="Reserva " id="reserva_menu" groups="group_upobarber_manager" action="reserva_list_action"/>
+  </menuitem>
+
+  <menuitem name="Empleados y Horarios" id="empleados_horarios_menu" parent="upobarber_menu" groups="group_upobarber_manager">
+    <menuitem name="Empleado " id="empleado_menu" groups="group_upobarber_manager" action="empleado_list_action"/>
+    <menuitem name="Horario " id="horario_menu" groups="group_upobarber_manager" action="horario_list_action"/>
+  </menuitem>
+
+
+  <menuitem name="Productos, Articulos, Compras y Pagos" id="productos_compras_pagos_menu" parent="upobarber_menu" groups="group_upobarber_manager">
+    <menuitem name="Producto" id="producto_menu" groups="group_upobarber_manager" action="producto_list_action"/>
+    <menuitem name="Tipo Producto" id="tipoproducto_menu" groups="group_upobarber_manager" action="tipoproducto_list_action"/>
+    <menuitem name="Articulo" id="articulo_menu" groups="group_upobarber_manager" action="articulo_list_action"/>
+    <menuitem name="Compra" id="compra_menu" groups="group_upobarber_manager" action="compra_list_action"/>
+    <menuitem name="Pago" id="pago_menu" groups="group_upobarber_manager" action="pago_list_action"/>
+    <menuitem name="MetodoPago" id="metodopago_menu" groups="group_upobarber_manager" action="metodopago_list_action"/>
+  </menuitem>
+
+</odoo>
