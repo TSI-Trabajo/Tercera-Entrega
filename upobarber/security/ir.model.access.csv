@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_upobarber_compra,access_upobarber_compra,model_upobarber_compra,group_upobarber_manager,1,1,1,1
-access_upobarber_metodopago,access_upobarber_metodopago,model_upobarber_metodopago,group_upobarber_manager,1,1,1,1
-access_upobarber_pago,access_upobarber_pago,model_upobarber_pago,group_upobarber_manager,1,1,1,1
