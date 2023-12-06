@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="upobarber_compra_template">
+        <t t-call="web.external_layout">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        <h2>COMPRA</h2>
+                        <hr/>
+                        <h3>Id de la Compra</h3>
+                        <t t-esc="doc.name" />
+                        <h3>Importe: </h3>
+                        <p><t t-esc="doc.importe" />€</p>
+                        <h3>Fecha de la compra</h3>
+                        <t t-esc="doc.fechaCompra" />
+                        <hr/>
+                        <h3>Concepto del pago</h3>
+                        <p t-field="doc.pago_id">Concepto del pago</p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    
+</odoo>

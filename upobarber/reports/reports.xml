@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--
+    <report 
+    id="upobarber_compra_report" 
+    string="Compra" 
+    model="upobarber.compra" 
+    report_type="qweb-pdf" 
+    name="upobarber.compra_report" 
+    file="upobarber.compra_report" />
+-->
+    <record id="upobarber_compra_report" model="ir.actions.report">
+        <field name="name">Compra</field>
+        <field name="model">upobarber.compra</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">upobarber.upobarber_compra_template</field>
+        <field name="binding_model_id" ref="model_upobarber_compra"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="upobarber_pago_report" model="ir.actions.report">
+        <field name="name">Pago</field>
+        <field name="model">upobarber.pago</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">upobarber.upobarber_pago_template</field>
+        <field name="binding_model_id" ref="model_upobarber_pago"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>
