@@ -27,20 +27,18 @@ class Pago(models.Model):
             if(record.pagado):
                 record.string_poner_pagado = "Pagado"
             else:
-                record.string_poner_pagado = "No Pagado"
-            
-
-        
+                record.string_poner_pagado = "No Pagado"  
 
     @api.depends('pagado')
     def _compute_contar_pagado(self):
         for record in self:
             record.boolean_pagado_contar = self.search_count([('pagado','=',True)])
-    
-
 
     sql_constraints = [
         ('name_uniq',
         'UNIQUE (name)',
         'El id del pago debe ser único.')
     ]
+
+    def btn_generate_report(self):
+          return self.env.ref('upobarber.upobarber_pago_report').report_action(self)

@@ -17,7 +17,7 @@ class Compra(models.Model):
 
     pago_id = fields.Many2one('upobarber.pago', string="Concepto del pago")
     #cliente_id = fields.Many2one('upobarber.cliente', string="Cliente")
-    #articulo_id = fields.One2many('upobarber.articulo', 'compra_id', "Compra")
+    articulo_id = fields.One2many('upobarber.articulo', 'compra_id', "Artículo")
 
     @api.constrains('importe')
     def _check_importe_valido(self):
@@ -34,3 +34,6 @@ class Compra(models.Model):
         'UNIQUE (name)',
         'El id de la compra debe ser único.')
     ]
+
+    def btn_generate_report(self):
+          return self.env.ref('upobarber.upobarber_compra_report').report_action(self)
