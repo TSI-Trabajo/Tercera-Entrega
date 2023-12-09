@@ -11,5 +11,5 @@ class Pago(models.Model):
     pagado = fields.Boolean(string="Pagado", default=False)
 
     metodo_id = fields.Many2one('upobarber.metodopago',string="Metodo Pago")
-    #cita_id = fields.related('upobarber.cita', string="Cita")
+    cita_id = fields.Many2one('upobarber.cita', string="Pago de la Cita")
     #compra_id = fields.Many2one('upobarber.compra', "Compra")

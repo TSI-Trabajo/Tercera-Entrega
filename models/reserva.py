@@ -5,12 +5,13 @@ class Reserva(models.Model):
      _description = 'Reservas de la peluquería.'
 
      name = fields.Integer(string="IdReserva", required=True, help="ID de la reserva")
-     telefonoContacto = fields.Integer(string="Telefono",size = 9, help = "Telefono MOVIL de la peluquería")
+     telefonoContacto = fields.Integer(string="Telefono",default='123456789', help = "Telefono MOVIL de la peluquería",readonly=True)
      fechaReserva = fields.Date(string="Fecha Reserva", required=True,help = "Fecha en la que se hizo la Reserva", index=True, default=fields.Date.today())
+     clienteReservante = fields.Char(related='cliente_id.nombre',string="Cliente Reservante", readonly=True)
      pagada = fields.Boolean(related='cita_id.pagado', string='Cita de la Reserva', readonly=True)
      
      cita_id = fields.One2many("upobarber.cita",'reserva_id',string="Citas de la reserva")
-     cliente_id = fields.Many2one("upobarber.cliente",'Cliente Reservante')
+     cliente_id = fields.Many2one("upobarber.cliente",'DNI Cliente Reservante')
      
      def obtener_nombre_cliente(self):
           if self.cita_id:

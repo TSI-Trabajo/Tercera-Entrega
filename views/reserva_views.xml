@@ -12,7 +12,8 @@
               <page name="datosreserva" string="Datos de la Reserva" >
                 <group>
                   <field name="cliente_id" widget="many2one" />
-                  <field name="telefonoContacto" />
+                  <field name="clienteReservante" />
+                  <field name="telefonoContacto" readonly="1"/>
                   <field name="fechaReserva" string="Fecha que se realizó Reserva" />
                 </group>
               </page>
@@ -45,28 +46,25 @@
   </record>
 
 
- <!-- <record id="upobarber_reserva_search_view" model="ir.ui.view">
+  <record id="upobarber_reserva_search_view" model="ir.ui.view">
     <field name="name">upobarber.reserva.search</field>
     <field name="model">upobarber.reserva</field>
     <field name="arch" type="xml">
       <search>
-        <filter name="filtrar_confirmadas" string="Citas Confirmadas" domain="[('confirmada', '=', 'True')]" />
-        <filter name="filtrar_pagadas" string="Citas Pagadas" domain="[('pagado', '=', 'True')]" />
-        <separator orientation="vertical" />
         <group expand="0" string="Agrupar por">
           <filter name="group_by_cliente" string="ID_Cliente" context="{'group_by':'cliente_id'}" />
         </group> 
-     </search>
+      </search>
     </field>
-  </record>  -->
+ </record> 
 
   <record id="reserva_list_action" model="ir.actions.act_window">
     <field name="name">reserva</field>
     <field name="res_model">upobarber.reserva</field>
-    <!--<field name="search_view_id" ref="upobarber_reserva_search_view"/>-->
+    <field name="search_view_id" ref="upobarber_reserva_search_view"/>
     <field name="view_mode">tree,form</field>
     <field name="help" type="html">
-      <p class="o_view_nocontent_smiling_face">Create the first user</p>
+      <p class="o_view_nocontent_smiling_face">Create the first reservation</p>
     </field>
   </record>
 </odoo>

@@ -5,7 +5,7 @@
     <field name="arch" type="xml">
       <form string="cita">
         <header>
-          <button name="btn_eliminarCita" string="Admitir" type="object" class="oe_highlight" />
+          <button name="btn_confimarCita" string="Confirmar Cita" type="object" class="oe_highlight" />
         </header>
         <sheet layout="auto">
           <group>
@@ -15,9 +15,9 @@
             <field name="pagado" />
             <field name="reserva_id" widget="many2one" />
             <field name="horario_id" widget="one2many" />
-            <!--  <field name="horario_ids" widget="One2many" />
+            <field name="pago_id" widget="one2many" />
+      <!--  <field name="horario_ids" widget="One2many" />
             <field name="tipo_Servicio" widget="Many2one" />
-            <field name="pago_id" widget="One2one" />
             <field name="reseña_ids" widget="Many2one" />  -->
           </group>
         </sheet>
@@ -36,9 +36,9 @@
         <field name="pagado" />
         <field name="reserva_id" widget="many2one" />
         <field name="horario_id" widget="one2many" />
-        <!--  <field name="horario_ids" widget="One2many" />
+        <field name="pago_id" widget="one2many" />
+  <!--  <field name="horario_ids" widget="One2many" />
         <field name="tipo_Servicio" widget="Many2one" />
-        <field name="pago_id" widget="One2one" />
         <field name="reseña_ids" widget="Many2one" />  -->
       </tree>
     </field>
@@ -77,7 +77,7 @@
     <field name="search_view_id" ref="upobarber_cita_search_view"/>
     <field name="view_mode">tree,form,gantt</field>
     <field name="help" type="html">
-      <p class="o_view_nocontent_smiling_face">Create the first user</p>
+      <p class="o_view_nocontent_smiling_face">Create the first appointment</p>
     </field>
   </record>
 
