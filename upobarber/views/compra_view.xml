@@ -8,6 +8,9 @@
 
         <header>
           <button name="btn_generate_report" string="Generar informe" type="object" class="oe_highlight" />
+          <!--Jose Luis-->
+           <button name="action_confirmaCompra" string="Confirmar Compra" type="object" class="oe_highlight" />
+          <!--Jose Luis-->
         </header>
 
         <sheet layout="auto">
@@ -16,7 +19,10 @@
             <field name="importe" widget="monetary" />
             <field name="fechaCompra" />
             <field name="pago_id" widget="many2one" />
-            <field name="articulo_id" widget="one2many" />
+            <field name="articulo_id" widget="many2many" />
+            <!--Jose Luis-->
+            
+            <!--Jose Luis-->
           </group>
         </sheet>
       </form>

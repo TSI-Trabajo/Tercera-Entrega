@@ -17,7 +17,23 @@ class Compra(models.Model):
 
     pago_id = fields.Many2one('upobarber.pago', string="Concepto del pago")
     #cliente_id = fields.Many2one('upobarber.cliente', string="Cliente")
-    articulo_id = fields.One2many('upobarber.articulo', 'compra_id', "Artículo")
+    #articulo_id = fields.One2many('upobarber.articulo', 'compra_id', "Artículo")
+    
+    #Jose Luis Inicio
+    
+    articulo_id = fields.Many2many('upobarber.articulo', string="Artículos")
+    cantidad = fields.Float(string="Cantidad", default=1.0)
+    
+    def action_confirmaCompra(self):
+        self.importe = 0
+        for compra in self:
+            for articulo in compra.articulo_id:
+                if articulo and compra.cantidad > 0 and compra.cantidad <= articulo.stock:
+                    articulo.write({'stock': articulo.stock - compra.cantidad})
+                    
+                    compra.write({'importe': compra.importe + articulo.precio})
+
+    #Jose Luis Fin
 
     @api.constrains('importe')
     def _check_importe_valido(self):
