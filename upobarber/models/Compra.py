@@ -17,31 +17,29 @@ class Compra(models.Model):
 
     pago_id = fields.Many2one('upobarber.pago', string="Concepto del pago")
     #cliente_id = fields.Many2one('upobarber.cliente', string="Cliente")
-    #articulo_id = fields.One2many('upobarber.articulo', 'compra_id', "Artículo")
-    
-    #Jose Luis Inicio
     
     articulo_id = fields.Many2many('upobarber.articulo', string="Artículos")
-    cantidad = fields.Float(string="Cantidad", default=1.0)
+    cantidad = fields.Integer(string="Cantidad", default=1.0)
     
     def action_confirmaCompra(self):
         self.importe = 0
         for compra in self:
             for articulo in compra.articulo_id:
-                if articulo and compra.cantidad > 0 and compra.cantidad <= articulo.stock:
-                    articulo.write({'stock': articulo.stock - compra.cantidad})
-                    
-                    compra.write({'importe': compra.importe + articulo.precio})
+                if compra.cantidad > 0 and compra.cantidad <= articulo.stock:
+                    #articulo.write({'stock':articulo.stock-compra.cantidad})
+                    self.articulo_id.stock = self.articulo_id.stock-self.cantidad
+                    #compra.write({'importe':compra.importe+articulo.precio})
+                    self.importe += self.articulo_id.precio
 
-    #Jose Luis Fin
 
-    @api.constrains('importe')
-    def _check_importe_valido(self):
-        if self.importe <= 0:
-            raise models.ValidationError('El importe debe ser un importe válido!!')
-     
+#    @api.constrains('importe')
+#    def _check_importe_valido(self):
+#        if self.importe <= 0:
+#           raise models.ValidationError('El importe debe ser un importe válido!!')
+#
+
     @api.constrains('fechaCompra')
-    def _chech_fecha_valida(self):
+    def _check_fecha_valida(self):
         if self.fechaCompra > datetime.now():
             raise models.ValidationError('La fecha debe ser una fecha válida!! No puede ser una fecha más tarde de la actual')
 
