@@ -6,15 +6,17 @@
       <form string="reserva">
         <sheet layout="auto">
             <group>
+              <!--<field name="id" string="ID Cita" /> para que autogenerase los id`s; pero sino pierdo el atributo name-->
               <field name="name" string="ID Reserva" /> 
             </group>
             <notebook>
               <page name="datosreserva" string="Datos de la Reserva" >
                 <group>
                   <field name="cliente_id" widget="many2one" />
+                  <field name="name" /> 
                   <field name="clienteReservante" />
-                  <field name="telefonoContacto" readonly="1"/>
                   <field name="fechaReserva" string="Fecha que se realizó Reserva" />
+                  <field name="telefono" />
                 </group>
               </page>
               <page name="citas" string="Citas de la Reserva">
@@ -36,10 +38,12 @@
     <field name="model">upobarber.reserva</field>
     <field name="arch" type="xml">
       <tree string="reserva">
-        <field name="name" />
+        <!--<field name="id" string="ID Cita" />-->
+        <field name="name" string="ID Reserva"/>
         <field name="cliente_id" widget="many2one" />
-        <field name="telefonoContacto" />
+        <field name="name" />
         <field name="fechaReserva" />
+        <field name="telefono" />
         <field name="cita_id" widget="one2many" />
       </tree>
     </field>

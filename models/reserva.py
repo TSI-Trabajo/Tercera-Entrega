@@ -4,8 +4,8 @@ class Reserva(models.Model):
      _name = 'upobarber.reserva'
      _description = 'Reservas de la peluquería.'
 
-     name = fields.Integer(string="IdReserva", required=True, help="ID de la reserva")
-     telefonoContacto = fields.Integer(string="Telefono",default='123456789', help = "Telefono MOVIL de la peluquería",readonly=True)
+     name = fields.Char(string='ID de la Reserva', required=True)
+     telefono = fields.Integer(string="Telefono Contacto",default='123456789', help = "Telefono MOVIL de la peluquería",readonly=True) #he puesto el name como el telefono contacto para poder generar el id automatciamnete(id en las views)
      fechaReserva = fields.Date(string="Fecha Reserva", required=True,help = "Fecha en la que se hizo la Reserva", index=True, default=fields.Date.today())
      clienteReservante = fields.Char(related='cliente_id.nombre',string="Cliente Reservante", readonly=True)
      pagada = fields.Boolean(related='cita_id.pagado', string='Cita de la Reserva', readonly=True)
@@ -25,7 +25,8 @@ class Reserva(models.Model):
      
      def btn_eliminarCitas(self):
           self.write({'cita_id':[(5,)]})
-          
+           
      def btn_eliminarCitasNoPagadas(self):
-          if(self.pagada == False):
-                    self.write({'cita_id':[(5,)]})
+        citas_no_pagadas = self.cita_id.filtered(lambda cita: not cita.pagado)
+        citas_no_pagadas.unlink()
+          

@@ -9,7 +9,8 @@
         </header>
         <sheet layout="auto">
           <group>
-            <field name="name" />
+        <!--<field name="id" string="ID Cita" /> para que autogenerase los id`s; pero sino pierdo el name-->
+            <field name="name" /> 
             <field name="cliente_id" widget="many2one" />
             <field name="confirmada" />
             <field name="pagado" />
@@ -30,6 +31,7 @@
     <field name="model">upobarber.cita</field>
     <field name="arch" type="xml">
       <tree string="cita">
+    <!--<field name="id" string="ID Cita" /> -->
         <field name="name" />
         <field name="cliente_id" widget="many2one" />
         <field name="confirmada" />

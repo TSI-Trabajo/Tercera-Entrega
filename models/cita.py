@@ -5,11 +5,11 @@ class Cita(models.Model):
       _name = 'upobarber.cita'
       _description = 'Citas de la peluqueria'
 
-      name = fields.Char(string='ID de la Cita', required=True)
+      name = fields.Integer(string='ID de la Cita', required=True)
       confirmada = fields.Boolean(string="¿Cita Confirmada?",default=True)
       pagado = fields.Boolean(string="¿Pagado?",default=False)
      
-      start_date = fields.Datetime(related='horario_id.horarioInicio', string = 'Hora de Inicio', readonly=True)
+      start_date = fields.Datetime(related='horario_id.horarioInicio', string = 'Hora de Inicio', readonly=True)  #usadas para la vista gantt pero en la version odoo antigua no funcionaba
       end_date = fields.Datetime(related='horario_id.horarioFin', string = 'Hora de Fin', readonly=True)
      
       cliente_id = fields.Many2one("upobarber.cliente",'Dni Cliente')
@@ -20,6 +20,7 @@ class Cita(models.Model):
       #reseña_ids = fields.Many2one ("upobarber.reseña",'Reseña')
      
       _sql_constraints = [('cita_id_unico', 'UNIQUE (name)', 'El ID de la Cita debe ser único.')]
+      
 
       def btn_confimarCita(self):
             citas_pagadas = self.env['upobarber.cita'].search([('cliente_id', '=', self.id), ('pagado', '=', True)])

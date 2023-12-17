@@ -50,5 +50,12 @@
         'demo/upobarber.horario.csv',
         'demo/upobarber.articulo.csv',    
     ],
+    'assets':{
+    	'web.assets_backend': [
+            'gym/static/src/components/*/*.js',
+            'gym/static/src/components/*/*.xml',
+            'gym/static/src/components/*/*.scss',
+    	],
+    },
     'application': True,
 }

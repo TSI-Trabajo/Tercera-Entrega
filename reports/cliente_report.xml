@@ -5,7 +5,7 @@
                 <p>Ficha de Cliente</p>
             </div>
             <t t-foreach="docs" t-as="o">
-                <t t-call="web.external_layout">
+                <t t-call="web.internal_layout">
                     <div class="report">
                         <div class="oe_structure" />
                         <div class="primero" style="font-size: 18px; margin-bottom: 20px;">
@@ -14,13 +14,13 @@
                             <span t-field="o.apellidos" style="color: #2c3e50; font-size: 20px;" />
                         </div>
                         <div class="segundo" style="display: flex; justify-content: space-between;">
-                            <div class="col-xs-4" style="margin: auto; text-align: center; margin-right: 30px;">
+                            <div class="col-xs-4" style="margin: auto; text-align: center; margin-right: 30px; display:inline-block;">
                                 <p style="padding-top: 10px;">
                                     <img t-if="not o.foto" t-att-src="'/web/static/src/img/placeholder.png'" height="250" border="1" width="250" />
                                     <img t-if="o.foto" t-att-src="'data:image/png; base64,%s' % to_text(o.foto)" height="250" border="1" width="250" />
                                 </p>
                             </div>
-                            <div class="col-xs-6" style="text-align: left; margin: auto; padding-left: 15px; padding-top: 20px;">
+                            <div class="col-xs-6" style="text-align: left; margin: auto; padding-left: 15px; padding-top: 20px; display:inline-block;">
                                 <table>
                                     <tr>
                                         <td>
@@ -42,6 +42,35 @@
                                     </tr>
                                 </table>
                             </div>
+                        </div>
+                        <div t-if="o.cita_id" class="row" style="margin-top: 40px; font-weight: bold; font-size: 19px;">
+                            Citas reservadas de <span t-field="o.name" />
+                        </div>
+                        <div t-if="o.cita_id" id="citas" class="row" style="margin-top: 10px;">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID  Cita</th>
+                                        <th>Confirmada</th>
+                                        <th>Pagada</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.cita_id" t-as="clase">
+                                        <tr>
+                                            <td>
+                                                <p t-field="clase.name" />
+                                            </td>
+                                            <td>
+                                                <p t-field="clase.confirmada" />
+                                            </td>
+                                            <td>
+                                                <p t-field="clase.pagado" />
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </t>

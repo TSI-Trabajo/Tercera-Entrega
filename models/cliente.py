@@ -22,7 +22,11 @@ class Cliente(models.Model):
      _sql_constraints = [('cliente_correoElectronico_unico','UNIQUE (correoElectronico)','El correoElectronico ya está registrado en nuestros datos')]
      
      def btn_verCitasPagadas(self):
-           citas_pagadas = self.env['upobarber.cita'].search([('cliente_id', '=', self.id), ('pagado', '=', True)])
+          citas_no_pagadas = self.env['upobarber.cita'].search([('cliente_id', '=', self.id), ('pagado', '=', False)])
+          citas_no_pagadas.unlink()
+     
+     def btn_generar_report(self):
+          return self.env.ref('upobarber.upobarber_cliente_template').report_action(self)
      
      @api.onchange('name')
      def _onchange_dni(self):

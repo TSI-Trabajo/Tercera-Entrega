@@ -29,4 +29,6 @@
     <menuitem name="MetodoPago" id="metodopago_menu" groups="group_upobarber_manager" action="metodopago_list_action"/>
   </menuitem>
 
+  <menuitem name="Clientes OWL (Carlos)" id="clientes_menu_owl_c" parent="upobarber_menu" groups="group_upobarber_manager" action="action_owl_cComponente_js"/>
+
 </odoo>

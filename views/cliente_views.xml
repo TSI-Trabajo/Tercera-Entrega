@@ -5,6 +5,9 @@
     <field name="model">upobarber.cliente</field>
     <field name="arch" type="xml">
       <form string="Cliente">
+        <header>
+          <button name="btn_generar_report" string="Generar Ficha Cliente" type="object" class="oe_highlight" />
+        </header>
         <sheet layout="auto">
           <group>
             <field name="name" string="ID Cliente" /> 
@@ -24,7 +27,7 @@
               <group>
                 <field name="cita_id" widget="one2many" />
                 <newline></newline>
-                <button name="btn_verCitasPagadas" string="Ver Citas Pagadas" type="object" class="oe_highlight" /> 
+                <button name="btn_verCitasPagadas" string="Ver Citas Pagadas" type="object" class="oe_highlight" />
               </group>
             </page>
             <page name="reservas" string="Reservas">
@@ -58,44 +61,44 @@
 
 
 <record id="upobarber_cliente_kanban_view" model="ir.ui.view">
-<field name="name">upobarber.cliente.kanban</field>
-<field name="model">upobarber.cliente</field>
-<field name="arch" type="xml">
-  <kanban>
-    <field name="name" />
-    <field name="nombre" />
-    <field name="apellidos" />
-    <field name="telefono" />
-    <field name="correoElectronico" />
-    <field name="foto" />
-    <templates>
-      <t t-name="kanban-box">
-        <div class="oe_kanban_global_click">
-          <div class="oe_kanban_details">
-            <strong>
-              <field name="name"/>
-            </strong>
-            <div>
-                  Nombre: <field name="nombre"/>
+  <field name="name">upobarber.cliente.kanban</field>
+  <field name="model">upobarber.cliente</field>
+  <field name="arch" type="xml">
+    <kanban>
+      <field name="name" />
+      <field name="nombre" />
+      <field name="apellidos" />
+      <field name="telefono" />
+      <field name="correoElectronico" />
+      <field name="foto" />
+      <templates>
+        <t t-name="kanban-box">
+          <div class="oe_kanban_global_click">
+            <div class="oe_kanban_details">
+              <strong>
+                <field name="name"/>
+              </strong>
+              <div>
+                    Nombre: <field name="nombre"/>
+              </div>
+              <div>
+                    Apellidos: <field name="apellidos"/>
+              </div>
+              <div>
+                    Teléfono: <field name="telefono"/>
+              </div>
+              <div>
+                    Correo: <field name="correoElectronico"/>
+              </div>
+              <!--<div>
+                    Foto: <field name="foto" widget="image" options='{"preview_image": false}'/>
+                  </div>-->
             </div>
-            <div>
-                  Apellidos: <field name="apellidos"/>
-            </div>
-            <div>
-                  Teléfono: <field name="telefono"/>
-            </div>
-            <div>
-                  Correo: <field name="correoElectronico"/>
-            </div>
-            <!--<div>
-                  Foto: <field name="foto" widget="image" options='{"preview_image": false}'/>
-                </div>-->
           </div>
-        </div>
-      </t>
-    </templates>
-  </kanban>
-</field>
+        </t>
+      </templates>
+    </kanban>
+  </field>
 </record>
 
 <!-- Define la acción de lista para el modelo "upobarber.cliente" -->
@@ -108,5 +111,11 @@
     <p class="o_view_nocontent_smiling_face">Crea el primer cliente</p>
   </field>
 </record>
+
+
+<record id="action_owl_cComponente_js" model="ir.actions.client">
+    <field name="name">cComponente OWL</field>
+    <field name="tag">owl.action_cComponente_js</field>
+</record> 
 
 </odoo>
