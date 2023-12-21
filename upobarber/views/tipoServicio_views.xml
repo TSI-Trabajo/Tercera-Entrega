@@ -5,7 +5,7 @@
         <field name="arch" type="xml">
             <form string="Tipo de Servicio">
                 <header>
-                    <button name="btn_generar_report" string="Generar Ficha Cliente" type="object" class="oe_highlight" />
+                    <button name="btn_generar_report" string="Generar Informe Tipo Servicio" type="object" class="oe_highlight" />
                 </header>
                 <sheet>
                     <group>

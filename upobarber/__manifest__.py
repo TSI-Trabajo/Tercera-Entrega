@@ -26,8 +26,6 @@
         'reports/reports.xml',
         'reports/resena_report.xml',
         'reports/tiposervicio_report.xml',
-        'reports/resena_report_action.xml',
-        'reports/tiposervicio_report_action.xml',
         'views/resena_views.xml',
         'views/servicio_views.xml',
         'views/tiposervicio_views.xml',

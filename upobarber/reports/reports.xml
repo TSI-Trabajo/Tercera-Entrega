@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <report id="upobarber_resena_report" string="Report" model="upobarber.resena" report_type="qweb-pdf" name="upobarber.upobarber_resena_template" />
-    <report id="upobarber_tiposervicio_report" string="Ficha Cliente" model="upobarber.tiposervicio" report_type="qweb-pdf" name="upobarber.upobarber_tiposervicio_template" />
+    <report id="action_upobarber_resena_report" string="Informe resena" model="upobarber.resena" report_type="qweb-pdf" name="upobarber.upobarber_resena_template" />
+    <report id="action_upobarber_tiposervicio_report" string="Informe tipo servicio" model="upobarber.tiposervicio" report_type="qweb-pdf" name="upobarber.upobarber_tiposervicio_template" />
 
 </odoo>

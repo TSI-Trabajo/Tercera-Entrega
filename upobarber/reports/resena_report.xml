@@ -1,42 +1,55 @@
 <odoo>
     <template id="upobarber_resena_template">
         <t t-call="web.html_container">
-            <div class="titulo" style="font-size: 36px; font-weight: bold; margin-bottom: 20px; text-align: center; color: #3498db;">
-                <p>Detalles de Reseña</p>
-            </div>
             <t t-foreach="docs" t-as="o">
-                <t t-call="web.internal_layout">
-                    <div class="report">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
                         <div class="oe_structure" />
-                        <div class="primero" style="font-size: 18px; margin-bottom: 20px;">
-                            <span style="font-weight: bold; text-decoration: underline;">ID de la Reseña:</span>
-                            <span t-field="o.resena_id" style="color: #2c3e50; font-size: 20px;" />
-                        </div>
-                        <div class="segundo" style="display: flex; justify-content: space-between;">
-                            <div class="col-xs-6" style="margin: auto; text-align: center; display:inline-block;">
-                                <!-- Add any additional fields specific to the resena model -->
-                                <!-- For example: -->
-                                <p>
-                                    <strong>Puntuación:</strong>
-                                    <span t-field="o.puntuacion" style="color: #2c3e50;" />
-                                </p>
-                                <p>
-                                    <strong>Comentarios:</strong>
-                                    <span t-field="o.comentarios" style="color: #2c3e50;" />
-                                </p>
+                        <div class="row">
+                            <div class="col-xs-2" style="margin: auto;">
                             </div>
+                            <center>
+                                <div class="col-xs-8" style="margin: auto;">
+                                    <table class="table table-condensed" style="border: 3px solid black !important;">
+                                        <tr>
+                                            <td width="40%">
+                                                <p style="text-align: center;">
+                                                    <h2>
+                                                        <span t-field="o.resena_id" />
+                                                    </h2>
+                                                </p>
+                                            </td>
+                                            <td width="40%">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <p style="text-align: right; ">
+                                                                <strong>Puntuacion: </strong>
+                                                            </p>
+                                                            <p style="text-align: right; ">
+                                                                <strong>Comentarios: </strong>
+                                                            </p>
+
+                                                        </td>
+                                                        <td>
+                                                            <p style="text-align: left; padding-left: 10px;" t-field="o.puntuacion" />
+                                                            <p style="text-align: left; padding-left: 10px;" t-field="o.comentarios" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </center>
                         </div>
                     </div>
                 </t>
             </t>
         </t>
     </template>
-
-    <record id="action_report_resena" model="ir.actions.report">
-        <field name="name">Reporte Resena</field>
-        <field name="model">upobarber.resena</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">module_name.upobarber_resena_template</field>
-    </record>
-
 </odoo>
