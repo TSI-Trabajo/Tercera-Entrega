@@ -1,0 +1,8 @@
+<odoo>
+    <record id="action_report_resena" model="ir.actions.report">
+        <field name="name">Reporte Resena</field>
+        <field name="model">upobarber.resena</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">module_name.upobarber_resena_template</field>
+    </record>
+</odoo>

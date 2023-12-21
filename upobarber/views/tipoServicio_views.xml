@@ -1,0 +1,95 @@
+<odoo>
+    <record id="upobarber_tiposervicio_form_view" model="ir.ui.view">
+        <field name="name">upobarber.tiposervicio.form</field>
+        <field name="model">upobarber.tiposervicio</field>
+        <field name="arch" type="xml">
+            <form string="Tipo de Servicio">
+                <header>
+                    <button name="btn_generar_report" string="Generar Ficha Cliente" type="object" class="oe_highlight" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="tipo_servicio" required="1"/>
+                        <field name="descripcion" />
+                        <field name="precio" />
+                        <field name="tiempo" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="upobarber_tiposervicio_tree_view" model="ir.ui.view">
+        <field name="name">upobarber.tiposervicio.tree</field>
+        <field name="model">upobarber.tiposervicio</field>
+        <field name="arch" type="xml">
+            <tree string="Tipo de Servicio">
+                <field name="tipo_servicio" />
+                <field name="descripcion" />
+                <field name="precio" />
+                <field name="tiempo" />
+            </tree>
+        </field>
+    </record>
+
+
+
+    <record id="upobarber_tiposervicio_kanban_view" model="ir.ui.view">
+        <field name="name">upobarber.tiposervicio.kanban</field>
+        <field name="model">upobarber.tiposervicio</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="tipo_servicio" />
+                <field name="descripcion" />
+                <field name="precio" />
+                <field name="tiempo" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="tipo_servicio"/>
+                                </strong>
+                                <div>
+                                    Precio: <field name="precio"/>
+                                </div>
+                                <div>
+                                    Tiempo: <field name="tiempo"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+
+    <record id="upobarber_tiposervicio_search_view" model="ir.ui.view">
+        <field name="name">upobarber.tiposervicio.search</field>
+        <field name="model">upobarber.tiposervicio</field>
+        <field name="arch" type="xml">
+            <search string="busca los tipos de servicios">
+                <filter name="filter_all" string="Tutti" domain="[]" context="{'group_by': 'tipo_servicio'}"/>
+                <filter name="filter_by_precio" string="Por precio major de 50" domain="[('precio', '&gt;', 50)]"/>
+                <filter name="filter_by_tiempo" string="Por tiempo menor de 10" domain="[('tiempo', '&lt;', 10)]"/>
+                <filter name="filter_by_corte" string="Servicios con Corte" domain="[('tipo_servicio', 'ilike', 'corte')]"/>
+                <filter name="filter_by_barba" string="Servicios con Barba" domain="[('tipo_servicio', 'ilike', 'barba')]"/>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="tiposervicio_list_action" model="ir.actions.act_window">
+        <field name="name">Tipos de Servicios</field>
+        <field name="res_model">upobarber.tiposervicio</field>
+        <field name="search_view_id" ref="upobarber_tiposervicio_search_view"/>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Crea el primer tipo de servicio</p>
+        </field>
+    </record>
+
+
+</odoo>

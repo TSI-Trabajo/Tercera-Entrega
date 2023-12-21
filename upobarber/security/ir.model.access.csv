@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+resena_manager,resena_manager,model_upobarber_resena,group_upobarber_manager,1,1,1,1
+servicio_manager,servicio_manager,model_upobarber_servicio,group_upobarber_manager,1,1,1,1
+tiposervicio_manager,tiposervicio_manager,model_upobarber_tiposervicio,group_upobarber_manager,1,1,1,1

@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <record id="action_report_tiposervicio" model="ir.actions.report">
+            <field name="name">Tipo de Servicio Report</field>
+            <field name="model">upobarber.tiposervicio</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">upobarber.tiposervicio_report</field>
+        </record>
+    </data>
+</odoo>

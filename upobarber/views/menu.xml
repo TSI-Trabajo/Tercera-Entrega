@@ -1,0 +1,46 @@
+<odoo>
+    <record id="resena_list_action" model="ir.actions.act_window">
+        <field name="name">resena</field>
+        <field name="res_model">upobarber.resena</field>
+        <field name="search_view_id" ref="upobarber_resena_search_view"/>
+        <field name="view_mode">tree,form,graph,kanban</field>
+        <field name="view_id" ref="view_upobarber_resena_kanban"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Pone tu resena</p>
+        </field>
+    </record>
+
+    <!-- Define la acción de lista para el modelo "upobarber.servicio" -->
+    <record id="servicio_list_action" model="ir.actions.act_window">
+        <field name="name">servicio</field>
+        <field name="res_model">upobarber.servicio</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Crea el servicio</p>
+        </field>
+    </record>
+
+    <!-- Define la acción de lista para el modelo "upobarber.tiposervicio" -->
+    <record id="tiposervicio_list_action" model="ir.actions.act_window">
+        <field name="name">Tipos de Servicios</field>
+        <field name="res_model">upobarber.tiposervicio</field>
+        <field name="search_view_id" ref="upobarber_tiposervicio_search_view"/>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Crea el primer tipo de servicio</p>
+        </field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="UpoBarber" id="main_upobarber_menu" groups="group_upobarber_manager"/>
+
+    <!-- menu categories -->
+    <menuitem name="UpoBarber" id="upobarber_menu" groups="group_upobarber_manager" parent="main_upobarber_menu"/>
+
+    <!-- actions -->
+    <menuitem name="Resena" id="resena_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="resena_list_action"/>
+    <menuitem name="Servicio" id="servicio_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="servicio_list_action"/>
+    <menuitem name="Tipo servicio " id="tiposervicio_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="tiposervicio_list_action"/>
+    <menuitem name="Resena OWL " id="Resena_menu_owl" parent="upobarber_menu" groups="group_upobarber_manager" action="action_owl_tComponente_js"/>
+
+</odoo>
