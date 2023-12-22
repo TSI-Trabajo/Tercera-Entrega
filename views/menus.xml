@@ -1,0 +1,16 @@
+<odoo>
+    <!-- Top menu item -->
+    <menuitem name="Upobarber" id="main_upobarber_menu" groups="group_upobarber_manager"/>
+
+    <!-- menu categories -->
+    <menuitem name="Upobarber" id="upobarber_menu" groups="group_upobarber_manager" parent="main_upobarber_menu"/>
+
+    <!-- actions /submenus de Upobarber lo que aparece de menu-->
+    <menuitem name="Compra" id="compra_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="compra_list_action"/>
+    <menuitem name="Pago" id="pago_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="pago_list_action"/>
+    <menuitem name="MetodoPago" id="metodopago_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="metodopago_list_action"/>
+    <menuitem name="Articulo" id="articulo_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="articulo_list_action"/>
+    <menuitem name="Articulo OWL" id="articulo_menu_owl" parent="upobarber_menu" groups="group_upobarber_manager" action="action_owl_COMP1Componente_js"/>
+    <menuitem name="Producto" id="producto_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="producto_list_action"/>
+    <menuitem name="Tipo Producto" id="tipoproducto_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="tipoproducto_list_action"/>
+</odoo>

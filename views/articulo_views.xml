@@ -94,11 +94,16 @@
         <field name="name">Articulo</field>
         <field name="res_model">upobarber.articulo</field>
         <field name="search_view_id" ref="upobarber_articulo_search_view"/>
-        <field name="view_mode">tree,form,graph,kanban</field>
+        <field name="view_mode">tree,form,kanban,graph</field>
         <field name="view_id" ref="upobarber_articulo_kanban_view"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Crea el primer Articulo</p>
         </field>
+    </record>
+
+    <record id="action_owl_COMP1Componente_js" model="ir.actions.client">
+        <field name="name">COMP1Componente OWL</field>
+        <field name="tag">owl.action_COMP1Componente_js</field>
     </record>
 
 </odoo>

@@ -4,10 +4,10 @@
 
     'summary': """Gestion del modulo upobarber""",
 
-    'description': """Gestion de peluqueria.""",
+    'description': """Gestion del pago, metodo de pago, compra""",
 
-    'author': "TSI - UPO",
-    'website': "https://www.upo.es",
+    'author': "joseAntonioOrozcoRodriguez",
+    'website': "https://www.upobarber.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
@@ -22,34 +22,36 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-        'reports/reports.xml',
-        'reports/producto_report.xml',
-        'reports/articulo_report.xml',
-        'reports/tipoproducto_report.xml',
-        #'views/horario_views.xml',
-        #'views/cita_views.xml',
-        #'views/empleado_views.xml',
-        #'views/cliente_views.xml',
-        #'views/reserva_views.xml',
+        'views/compra_view.xml',
+        'views/pago_view.xml',
+        'views/metodopago_view.xml',
         'views/articulo_views.xml',
         'views/producto_views.xml',
         'views/tipoproducto_views.xml',
-        #'views/pago_views.xml',
-        #'views/metodopago_views.xml',
-        #'views/compra_views.xml',
-        'views/menu.xml', 
+        'views/menus.xml',
+        'reports/compra_report.xml',
+        'reports/pago_report.xml',
+        'reports/producto_report.xml',
+        'reports/articulo_report.xml',
+        'reports/tipoproducto_report.xml',
+        'reports/reports.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [
-        #'demo/upobarber.horario.csv',
-        #'demo/upobarber.cliente.csv',
-        #'demo/upobarber.reserva.csv',
-        #'demo/upobarber.cita.csv',
-        #'demo/upobarber.empleado.csv',
+        'demo/upobarber.metodopago.csv',
+        'demo/upobarber.pago.csv',
+        'demo/upobarber.compra.csv',
         'demo/upobarber.tipoproducto.csv',
         'demo/upobarber.producto.csv',
-        'demo/upobarber.articulo.csv',    
+        'demo/upobarber.articulo.csv',  
     ],
-   
-    'application': True,
+    'assets':{
+        'web.assets_backend': [
+            'upobarber/static/src/components/*/*.js',
+            'upobarber/static/src/components/*/*.xml',
+            'upobarber/static/src/components/*/*.scss',
+    	],
+    },
+    'aplication': True,
 }

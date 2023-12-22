@@ -1,0 +1,112 @@
+<odoo>
+<!--Vista de formulario-->
+  <record id="upobarber_pago_form_view" model="ir.ui.view">
+    <field name="name">upobarber.pago.form</field>
+    <field name="model">upobarber.pago</field>
+    <field name="arch" type="xml">
+      <form string="Pago">
+
+        <header>
+          <button name="btn_generate_report" string="Generar informe" type="object" class="oe_highlight" />
+        </header>
+
+        <sheet layout="auto">
+          <group>
+            <field name="name"/>
+            <field name="pagado" />
+            <field name="metodo_id" widget="many2one" />
+            <field name="concepto"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+<!--Vista de árbol-->
+  <record id="upobarber_pago_tree_view" model="ir.ui.view">
+    <field name="name">upobarber.pago.tree</field>
+    <field name="model">upobarber.pago</field>
+    <field name="arch" type="xml">
+      <tree string="tree_string">
+            <field name="name"/>
+            <field name="pagado" />
+            <field name="metodo_id" widget="many2one" />
+            <field name="concepto"/>
+      </tree>
+    </field>
+  </record>
+
+<!--Vista de gráfico-->
+  <record  model="ir.ui.view" id="upobarber_pago_graph_view">
+    <field name="name">upobarber.pago.graph</field>
+    <field name="model">upobarber.pago</field>
+    <field name="arch" type="xml">
+      <graph string="Cantidad de pagados" type="bar">
+        <field name="string_poner_pagado" type="row" />
+        <field name="boolean_pagado_contar" type="measure" operator="sum" />
+      </graph>
+    </field>
+  </record>
+
+<!--Vista de Kanban-->
+    <record id="upobarber_pago_kanban_view" model="ir.ui.view">
+        <field name="name">upobarber.pago.kanban</field>
+        <field name="model">upobarber.pago</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="pagado"/>
+                <field name="concepto"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                    Estado del Pago: <field name="string_poner_pagado"/>
+                                </div>
+                                <div>
+                                    Concepto: <field name="concepto"/>
+                                </div>
+                                <div>
+                                    Método del Pago: <field name="metodo_id"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+<!--Filter y Groups-->
+  <record id="upobarber_pago_search_view" model="ir.ui.view">
+    <field name="name">upobarber.pago.search</field>
+    <field name="model">upobarber.pago</field>
+    <field name="arch" type="xml">
+      <search>
+        <filter name="search_pagados" string="Pagos realizados" domain="[('pagado','=',True)]" />
+        <filter name="search_no_pagados" string="Pagos no realizados" domain="[('pagado','=',False)]" />
+        <separator orientation="vertical" />
+
+        <group expand="0" string="Agrupar por...">
+          <filter name="group_by_pagado" string="Pagados" context="{'group_by':'pagado'}" />
+        </group>
+      </search>
+    </field>
+  </record>
+
+
+
+  <record id="pago_list_action" model="ir.actions.act_window">
+    <field name="name">Pago</field>
+    <field name="res_model">upobarber.pago</field>
+    <field name="view_mode">tree,form,kanban,graph</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Realizar Pago</p>
+    </field>
+  </record>
+
+</odoo>

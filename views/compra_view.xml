@@ -1,0 +1,109 @@
+<odoo>
+<!--Vista de Formulario-->
+  <record id="upobarber_compra_form_view" model="ir.ui.view">
+    <field name="name">upobarber.compra.form</field>
+    <field name="model">upobarber.compra</field>
+    <field name="arch" type="xml">
+      <form string="Compra">
+
+        <header>
+          <button name="btn_generate_report" string="Generar informe" type="object" class="oe_highlight" />
+          <!--Jose Luis-->
+           <button name="action_confirmaCompra" string="Confirmar Compra" type="object" class="oe_highlight" />
+          <!--Jose Luis-->
+        </header>
+
+        <sheet layout="auto">
+          <group>
+            <field name="name"/>
+            <field name="importe" widget="monetary" />
+            <field name="fechaCompra" />
+            <field name="pago_id" widget="many2one" />
+            <field name="articulo_id" widget="many2many" />
+            <!--Jose Luis-->
+            
+            <!--Jose Luis-->
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+<!--Vista de árbol-->
+  <record id="upobarber_compra_tree_view" model="ir.ui.view">
+    <field name="name">upobarber.compra.tree</field>
+    <field name="model">upobarber.compra</field>
+    <field name="arch" type="xml">
+      <tree string="Compra">
+            <field name="name" /> 
+            <field name="importe"  widget="monetary" />
+            <field name="fechaCompra"/>
+            <field name="pago_id" widget="many2one" />
+            <field name="articulo_id" widget="one2many" />
+      </tree>
+    </field>
+  </record>
+
+<!--Vista de Kanban-->
+    <record id="upobarber_compra_kanban_view" model="ir.ui.view">
+        <field name="name">upobarber.compra.kanban</field>
+        <field name="model">upobarber.compra</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="importe"/>
+                <field name="fechaCompra"/>
+                <field name="pago_id" />
+                <field name="articulo_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                    Importe: <field name="importe"/>
+                                </div>
+                                <div>
+                                    Fecha de la Compra: <field name="fechaCompra"/>
+                                </div>
+                                <div>
+                                    Concepto del Pago: <field name="pago_id"/>
+                                </div>
+                                <div>
+                                    Artículo asociado: <field name="articulo_id"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+<!--Filter y Groups-->
+  <record id="upobarber_compra_search_view" model="ir.ui.view">
+    <field name="name">upobarber.compra.search</field>
+    <field name="model">upobarber.compra</field>
+    <field name="arch" type="xml">
+      <search>
+        <filter name="search_precio" string="Compras >= 35€" domain="[('importe','>=','35.00')]"/>
+        <filter name="search_precio_menor" string="Compras &lt; 35€" domain="[('importe','&lt;','35.00')]"/>
+        <separator orientation="vertical" />
+        <group expand="0" string="Agrupar por...">
+          <filter name="group_by_date" string="Momento de la compra" context="{'group_by':'fechaCompra'}" />
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="compra_list_action" model="ir.actions.act_window">
+    <field name="name">Compra</field>
+    <field name="res_model">upobarber.compra</field>
+    <field name="view_mode">tree,form,kanban</field>
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Compra</p>
+    </field>
+</record>
+</odoo>

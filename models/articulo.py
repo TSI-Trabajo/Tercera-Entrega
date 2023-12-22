@@ -12,6 +12,8 @@ class Articulo(models.Model):
     stock = fields.Integer(string="Stock", required=True)
 
     producto_id = fields.Many2one('upobarber.producto', string='Producto Relacionado')
+    compra_id = fields.Many2many('upobarber.compra', string="Compras")
+
     
     _sql_constraints = [('articulo_name_unique','UNIQUE (name)','El Nombre del artículo ya existe')]
 

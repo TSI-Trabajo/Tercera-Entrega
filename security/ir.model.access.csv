@@ -1,4 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_upobarber_compra,access_upobarber_compra,model_upobarber_compra,group_upobarber_manager,1,1,1,1
+access_upobarber_metodopago,access_upobarber_metodopago,model_upobarber_metodopago,group_upobarber_manager,1,1,1,1
+access_upobarber_pago,access_upobarber_pago,model_upobarber_pago,group_upobarber_manager,1,1,1,1
 articulo_manager,articulo_manager,model_upobarber_articulo,group_upobarber_manager,1,1,1,1
 producto_manager,producto_manager,model_upobarber_producto,group_upobarber_manager,1,1,1,1
 tipoproducto_manager,tipoproducto_manager,model_upobarber_tipoproducto,group_upobarber_manager,1,1,1,1

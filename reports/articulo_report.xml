@@ -1,17 +1,49 @@
 <odoo>
     <template id="report_articulo">
-        <t t-call="web.html_container">
-            <t t-call="web.basic_layout"></t>
-            <t t-foreach="docs" t-as="o">
-                <t t-call="web.internal_layout">  
-                    <div class="page">
-                        <div class="oe_structure" />
-                        <div class="row" style="font-size: 24px; margin-bottom: 20px;">
-                            <span style="font-weight: bold; text-decoration: underline; ">ID:</span>
-                            <span style="color: #999999;" t-field="o.name" />
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-8" style="text-align: left; margin: auto; padding-left: 15px; padding-top: 10px;">
+    <t t-call="web.html_container">
+        <t t-call="web.basic_layout"></t>
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.internal_layout">  
+                <div class="page">
+                    <div class="oe_structure" />
+                    <div class="row" style="font-size: 24px; margin-bottom: 20px;">
+                        <span style="font-weight: bold; text-decoration: underline; ">ID:</span>
+                        <span style="color: #999999;" t-field="o.name" />
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8" style="text-align: left; margin: auto; padding-left: 15px; padding-top: 10px;">
+                            <table style="border-collapse: collapse; width: 100%; border: 2px solid #cccccc; margin: auto;" align="center">
+                                <thead style="text-align:center;  background-color: #f2f2f2;">
+                                    <tr style="border: 2px solid #cccccc;">
+                                        <th style="border: 2px solid #cccccc; text-align: center;">
+                                            <strong>ID</strong>
+                                        </th>
+                                        <th style="border: 2px solid #cccccc; text-align: center;">
+                                            <strong>Precio</strong>
+                                        </th>
+                                        <th style="border: 2px solid #cccccc; text-align: center;">
+                                            <strong>Stock</strong>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody style="text-align:center;">
+                                    <tr style="border: 2px solid #cccccc;">
+                                        <td style="border: 2px solid #cccccc; text-align: center;">
+                                            <p t-field="o.name" />
+                                        </td>
+                                        <td style="border: 2px solid #cccccc; text-align: center;">
+                                            <p><span t-field="o.precio" /> €</p>
+                                        </td>
+                                        <td style="border: 2px solid #cccccc; text-align: center;">
+                                            <p t-field="o.stock" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Producto Relacionado -->
+                            <div style="margin-top: 20px;">
+                                <h3>Producto Relacionado</h3>
                                 <table style="border-collapse: collapse; width: 100%; border: 2px solid #cccccc; margin: auto;" align="center">
                                     <thead style="text-align:center;  background-color: #f2f2f2;">
                                         <tr style="border: 2px solid #cccccc;">
@@ -19,23 +51,23 @@
                                                 <strong>ID</strong>
                                             </th>
                                             <th style="border: 2px solid #cccccc; text-align: center;">
-                                                <strong>Precio</strong>
+                                                <strong>Marca</strong>
                                             </th>
                                             <th style="border: 2px solid #cccccc; text-align: center;">
-                                                <strong>Stock</strong>
+                                                <strong>Modelo</strong>
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody style="text-align:center;">
-                                        <tr style="border: 2px solid #cccccc;">
+                                        <tr style="border: 2px solid #cccccc;" t-foreach="o.producto_id" t-as="producto">
                                             <td style="border: 2px solid #cccccc; text-align: center;">
-                                                <p t-field="o.name" />
+                                                <p t-field="producto.name" />
                                             </td>
                                             <td style="border: 2px solid #cccccc; text-align: center;">
-                                                <p><span t-field="o.precio" /> €</p>
+                                                <p t-field="producto.marca" /> 
                                             </td>
                                             <td style="border: 2px solid #cccccc; text-align: center;">
-                                                <p t-field="o.stock" />
+                                                <p t-field="producto.modelo" />
                                             </td>
                                         </tr>
                                     </tbody>
@@ -43,10 +75,12 @@
                             </div>
                         </div>
                     </div>
-                </t>
+                </div>
             </t>
         </t>
-    </template>
+    </t>
+</template>
+
 
     <template id="report_articulo_graph">
         <t t-call="web.html_container">
