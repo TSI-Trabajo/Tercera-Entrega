@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<templates xml:space="preserve"> 
+     <t t-name="owl.jaComponente" owl="1"> 
+        <div class="jaComponente-container">
+
+            <div class="row mx-2 mt-3">
+                <div class="col-lg-6">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" t-on-click="addPago">Nuevo Pago</button>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar por id de pago..." t-ref="search-input" t-on-keyup="searchPagos"/>
+                        <button class="btn btn-outline-primary" t-on-click="searchPagos">Buscar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-2">
+                <div class="col">
+                    <table class="table table-striped table-hover border">
+                      <thead>
+                        <tr>
+                          <th scope="col">ID Pago</th>
+                          <th scope="col">Pagado</th>
+                          <th scope="col"> </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                         <tr t-foreach="state.pago List" t-as="task" t-key="task.id">
+                          <td>
+                                <div class="form-check">
+                                    <label class="form-check-label" t-att-for="pago.id">
+                                        <span t-esc="pago.name" />
+                                    </label>
+                                </div>
+                          </td>
+                          <td>
+                              <input type="number" class="form-control" t-att-value="pago.pagado" t-on-change="(e)=>this.updatePago(e,pago)"/>
+                          </td>
+                          <td>
+                              <button class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#exampleModal" t-on-click="()=>this.editPago(pago)">Edit</button> 
+                              <button class="btn btn-danger" t-on-click="()=>this.deletePago(pago)">Delete</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir nuevo pago</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">ID Pago</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" t-model="state.pago.name" t-att-value="state.pago.name" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Pagado</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="pagado" t-model="state.pago.pagado" t-att-value="state.pago.pagado" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Metodo_id</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="metodo_id" t-model="state.pago.metodo_id" t-att-value="state.pago.metodo_id" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Concepto</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="concepto" t-model="state.pago.concepto" t-att-value="state.pago.concepto" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" t-on-click="saveTask">Guardar cambios</button>
+                </div>
+                </div>
+            </div>
+
+        </div>
+     </t> 
+</templates>

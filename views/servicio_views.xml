@@ -1,0 +1,92 @@
+<odoo>
+    <record id="upobarber_servicio_form_view" model="ir.ui.view">
+        <field name="name">upobarber.servicio.form</field>
+        <field name="model">upobarber.servicio</field>
+        <field name="arch" type="xml">
+            <form string="servicio">
+                <sheet layout="auto">
+                    <group>
+                        <field name="nombre_servicio" required="1"/>
+                        <field name="tipos_servicio_ids" widget="many2many_tags"/>
+                        <field name="precio_total" string="Precio Total" readonly="1"/>
+                        <field name="tiempo_total" string="Tiempo Total" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="upobarber_servicio_tree_view" model="ir.ui.view">
+        <field name="name">upobarber.servicio.tree</field>
+        <field name="model">upobarber.servicio</field>
+        <field name="arch" type="xml">
+            <tree string="servicio">
+                <field name="nombre_servicio" required="1"/>
+                <field name="tipos_servicio_ids" widget="many2many_tags"/>
+                <field name="precio_total" string="Precio Total" readonly="1"/>
+                <field name="tiempo_total" string="Tiempo Total" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_upobarber_servicio_kanban" model="ir.ui.view">
+        <field name="name">upobarber.servicio.kanban</field>
+        <field name="model">upobarber.servicio</field>
+        <field name="arch" type="xml">
+            <kanban class="o_service_kanban">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_image">
+                                <img t-if="record.image" t-att-src="'data:image/png;base64,'+record.image"/>
+                                <img t-if="!record.image"
+                                     t-att-src="'/web/image?model=upobarber.servicio&amp;field=image&amp;id='+record.id"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="nombre_servicio"/>
+                                </strong>
+                                <div>Precio Total:
+                                    <field name="precio_total"/>
+                                </div>
+                                <div>Tiempo Total:
+                                    <field name="tiempo_total"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="upobarber_servicio_search_view" model="ir.ui.view">
+        <field name="name">upobarber.servicio.search</field>
+        <field name="model">upobarber.servicio</field>
+        <field name="arch" type="xml">
+            <search string="Search Servicios">
+                <filter name="filter_all" string="Todos" domain="[]" context="{'group_by': 'tipos_servicio_ids'}"/>
+                <filter name="filter_by_corte" string="Servicios con Corte"
+                        domain="[('tipos_servicio_ids.tipo_servicio', 'ilike', 'corte')]"/>
+                <filter name="filter_by_barba" string="Servicios con Barba"
+                        domain="[('tipos_servicio_ids.tipo_servicio', 'ilike', 'barba')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_tipo_servicio" string="Tipo Servicio"
+                            context="{'group_by': 'tipos_servicio_ids'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="servicio_list_action" model="ir.actions.act_window">
+        <field name="name">servicio</field>
+        <field name="res_model">upobarber.servicio</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first user</p>
+        </field>
+    </record>
+</odoo>

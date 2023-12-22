@@ -12,7 +12,7 @@ class Horario(models.Model):
      disponible = fields.Boolean(string="¿Disponible?")
 
      empleado_dnis = fields.Many2one("upobarber.empleado", string="Empleados")
-     cita_ids = fields.Many2one("upobarber.cita", string="Citas")
+     cita_id = fields.Many2one("upobarber.cita", string="Citas")
 
      @api.onchange('horarioFin')
      def onchange_empleado(self):

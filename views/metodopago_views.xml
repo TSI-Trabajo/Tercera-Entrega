@@ -1,4 +1,6 @@
 <odoo>
+
+<!--Vista de formulario-->
   <record id="upobarber_metodopago_form_view" model="ir.ui.view">
     <field name="name">upobarber.metodopago.form</field>
     <field name="model">upobarber.metodopago</field>
@@ -6,27 +8,57 @@
       <form string="MetodoPago">
         <sheet layout="auto">
           <group>
-            <field name="name" />
+            <field name="name"/>
+            <field name="metodos" />
           </group>
         </sheet>
       </form>
     </field>
   </record>
 
+<!--Vista de árbol-->
   <record id="upobarber_metodopago_tree_view" model="ir.ui.view">
     <field name="name">upobarber.metodopago.tree</field>
     <field name="model">upobarber.metodopago</field>
     <field name="arch" type="xml">
       <tree string="tree_string">
             <field name="name" />
+            <field name="metodos" />
       </tree>
     </field>
   </record>
+
+<!--Vista de Kanban-->
+    <record id="upobarber_metodopago_kanban_view" model="ir.ui.view">
+        <field name="name">upobarber.metodopago.kanban</field>
+        <field name="model">upobarber.metodopago</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="metodos"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                    Método: <field name="metodos"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
   
     <record id="metodopago_list_action" model="ir.actions.act_window">
         <field name="name">MetodoPago</field>
         <field name="res_model">upobarber.metodopago</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Metodo de Pago</p>
         </field>

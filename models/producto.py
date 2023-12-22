@@ -15,3 +15,8 @@ class Producto(models.Model):
     tipoproducto_id = fields.Many2one('upobarber.tipoproducto', string="Tipo de Producto")
     articulo_ids = fields.One2many('upobarber.articulo', 'producto_id', "Articulo")
     
+    _sql_constraints = [('producto_name_unique','UNIQUE (name)','El ID del producto ya existe')]
+    
+    def btn_generate_report(self):
+          return self.env.ref('upobarber.report_productos').report_action(self)
+    

@@ -96,4 +96,9 @@
       <p class="o_view_nocontent_smiling_face">Cree el primer empleado</p>
     </field>
   </record>
+  
+  <!--<record id="action_owl_cComponente_js" model="ir.actions.empleado">
+    <field name="name">cComponente OWL</field>
+    <field name="tag">owl.action_cComponente_js</field>
+  </record>-->
 </odoo>

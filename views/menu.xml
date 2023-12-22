@@ -5,16 +5,40 @@
   <!-- menu categories -->
   <menuitem name="Categorías" id="upobarber_menu" groups="group_upobarber_manager" parent="main_upobarber_menu"/>
 
-  <!-- actions -->
-  <menuitem name="Cita" id="cita_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="cita_list_action"/>
-  <menuitem name="Empleado " id="empleado_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="empleado_list_action"/>
-  <menuitem name="Horario " id="horario_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="horario_list_action"/>
-  <menuitem name="Cliente" id="cliente_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="cliente_list_action"/>
-  <menuitem name="Reserva " id="reserva_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="reserva_list_action"/>
-  <menuitem name="Articulo" id="articulo_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="articulo_list_action"/>
-  <menuitem name="Producto" id="producto_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="producto_list_action"/>
-  <menuitem name="Tipo Producto" id="tipoproducto_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="tipoproducto_list_action"/>
-  <menuitem name="Compra" id="compra_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="compra_list_action"/>
-  <menuitem name="Pago" id="pago_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="pago_list_action"/>
-  <menuitem name="MetodoPago" id="metodopago_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="metodopago_list_action"/>
+  <menuitem name="Clientes" id="clientess_menu" parent="upobarber_menu" groups="group_upobarber_manager">
+    <menuitem name="Cliente" id="cliente_menu" groups="group_upobarber_manager" action="cliente_list_action"/>
+  </menuitem>
+
+  <menuitem name="Citas y Reservas" id="citas_reservas_menu" parent="upobarber_menu" groups="group_upobarber_manager">
+    <menuitem name="Cita" id="cita_menu" groups="group_upobarber_manager" action="cita_list_action"/>
+    <menuitem name="Reserva " id="reserva_menu" groups="group_upobarber_manager" action="reserva_list_action"/>
+  </menuitem>
+
+  <menuitem name="Empleados y Horarios" id="empleados_horarios_menu" parent="upobarber_menu" groups="group_upobarber_manager">
+    <menuitem name="Empleado " id="empleado_menu" groups="group_upobarber_manager" action="empleado_list_action"/>
+    <menuitem name="Horario " id="horario_menu" groups="group_upobarber_manager" action="horario_list_action"/>
+  </menuitem>
+
+
+  <menuitem name="Productos, Articulos, Compras y Pagos" id="productos_compras_pagos_menu" parent="upobarber_menu" groups="group_upobarber_manager">
+    <menuitem name="Producto" id="producto_menu" groups="group_upobarber_manager" action="producto_list_action"/>
+    <menuitem name="Tipo Producto" id="tipoproducto_menu" groups="group_upobarber_manager" action="tipoproducto_list_action"/>
+    <menuitem name="Articulo" id="articulo_menu" groups="group_upobarber_manager" action="articulo_list_action"/>
+    <menuitem name="Compra" id="compra_menu" groups="group_upobarber_manager" action="compra_list_action"/>
+    <menuitem name="Pago" id="pago_menu" groups="group_upobarber_manager" action="pago_list_action"/>
+    <menuitem name="MetodoPago" id="metodopago_menu" groups="group_upobarber_manager" action="metodopago_list_action"/>
+  </menuitem>
+
+  <menuitem name="Resenas, Servicios, Tipos de Servicio" id="resenas_servicios_tiposervicios_menu" parent="upobarber_menu" groups="group_upobarber_manager">
+    <menuitem name="Resenas" id="resena_menu" groups="group_upobarber_manager" action="resena_list_action"/>
+    <menuitem name="Tipos Servicio" id="tiposervicio_menu" groups="group_upobarber_manager" action="tiposervicio_list_action"/>
+    <menuitem name="Servicios" id="servicio_menu" groups="group_upobarber_manager" action="servicio_list_action"/>
+  </menuitem>
+
+
+
+  <menuitem name="Clientes OWL (Carlos)" id="clientes_menu_owl_c" parent="upobarber_menu" groups="group_upobarber_manager" action="action_owl_cComponente_js"/>
+  <menuitem name="Resenas OWL (Tommaso)" id="resenas_menu_owl_c" parent="upobarber_menu" groups="group_upobarber_manager" action="action_owl_tComponente_js"/>
+
+
 </odoo>

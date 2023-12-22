@@ -15,6 +15,10 @@ class Empleado(models.Model):
 
      horario_id = fields.One2many("upobarber.horario","empleado_dnis","Horarios Empleado")
 
+     _sql_constraints = [('empleado_name_unico','UNIQUE (name)','El DNI debe ser único')]
+     _sql_constraints = [('empleado_telefono_unico','UNIQUE (telefono)','El telefono debe ser único')]
+     _sql_constraints = [('empleado_correoElectronico_unico','UNIQUE (correoElectronico)','El correoElectronico debe ser único')]
+
      '''@api.onchange('name')
      def onchange_empleado(self):
           resultado = {}

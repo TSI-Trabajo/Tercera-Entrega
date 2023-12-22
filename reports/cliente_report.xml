@@ -1,47 +1,76 @@
 <odoo>
     <template id="upobarber_cliente_template">
         <t t-call="web.html_container">
-            <div class="titulo" style="font-size: 50px;font-weight: bold; margin-bottom: 20px;">
-                <p> Ficha de Cliente: </p>
+            <div class="titulo" style="font-size: 36px; font-weight: bold; margin-bottom: 20px; text-align: center; color: #3498db;">
+                <p>Ficha de Cliente</p>
             </div>
             <t t-foreach="docs" t-as="o">
-                <t t-call="web.external_layout">                    <!-- Probad tambien con web.internal_layout -->
+                <t t-call="web.internal_layout">
                     <div class="report">
                         <div class="oe_structure" />
-                        <div class="primero" style="font-size: 24px; margin-bottom: 20px;">
-                            <span style="font-weight: bold; text-decoration: underline; "> Nombre Completo: </span>
-                            <span style="color: #999999;" t-field="o.nombre" />
-                            <span style="color: #999999;" t-field="o.apellidos" />
+                        <div class="primero" style="font-size: 18px; margin-bottom: 20px;">
+                            <span style="font-weight: bold; text-decoration: underline;">Nombre Completo:</span>
+                            <span t-field="o.nombre" style="color: #2c3e50; font-size: 20px;" />
+                            <span t-field="o.apellidos" style="color: #2c3e50; font-size: 20px;" />
                         </div>
-                        <div class="segundo">
-                            <div class="col-xs-2" style="margin: auto; text-align: right; margin-rigth: 30px ; ">
+                        <div class="segundo" style="display: flex; justify-content: space-between;">
+                            <div class="col-xs-4" style="margin: auto; text-align: center; margin-right: 30px; display:inline-block;">
                                 <p style="padding-top: 10px;">
                                     <img t-if="not o.foto" t-att-src="'/web/static/src/img/placeholder.png'" height="250" border="1" width="250" />
                                     <img t-if="o.foto" t-att-src="'data:image/png; base64,%s' % to_text(o.foto)" height="250" border="1" width="250" />
                                 </p>
                             </div>
-                            <div class="col-xs-8" style="text-align: left; margin: auto; padding-left: 15px; padding-top: 100px;">
+                            <div class="col-xs-6" style="text-align: left; margin: auto; padding-left: 15px; padding-top: 20px; display:inline-block;">
                                 <table>
                                     <tr>
                                         <td>
                                             <p>
-                                                <strong> DNI: </strong>
+                                                <strong>DNI:</strong>
                                             </p>
                                             <p>
-                                                <strong>Telefono: </strong>
+                                                <strong>Teléfono:</strong>
                                             </p>
                                             <p>
-                                                <strong>Correo Electronico: </strong>
+                                                <strong>Correo Electrónico:</strong>
                                             </p>
                                         </td>
                                         <td style="padding-left: 7px;">
-                                            <p t-field="o.name" />
-                                            <p t-field="o.telefono" />
-                                            <p t-field="o.correoElectronico" />
+                                            <p t-field="o.name" style="color: #2c3e50;" />
+                                            <p t-field="o.telefono" style="color: #2c3e50;" />
+                                            <p t-field="o.correoElectronico" style="color: #2c3e50;" />
                                         </td>
                                     </tr>
                                 </table>
                             </div>
+                        </div>
+                        <div t-if="o.cita_id" class="row" style="margin-top: 40px; font-weight: bold; font-size: 19px;">
+                            Citas reservadas de <span t-field="o.name" />
+                        </div>
+                        <div t-if="o.cita_id" id="citas" class="row" style="margin-top: 10px;">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID  Cita</th>
+                                        <th>Confirmada</th>
+                                        <th>Pagada</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.cita_id" t-as="clase">
+                                        <tr>
+                                            <td>
+                                                <p t-field="clase.name" />
+                                            </td>
+                                            <td>
+                                                <p t-field="clase.confirmada" />
+                                            </td>
+                                            <td>
+                                                <p t-field="clase.pagado" />
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </t>
