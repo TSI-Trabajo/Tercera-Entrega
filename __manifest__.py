@@ -16,7 +16,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base',],
 
     # always loaded
     'data': [
@@ -26,6 +26,8 @@
         'reports/reports.xml',
         'reports/empleado_report.xml',
         'reports/cliente_report.xml',
+        'reports/resena_report.xml',
+        'reports/tiposervicio_report.xml',
         'views/horario_views.xml',
         'views/cita_views.xml',
         'views/empleado_views.xml',
@@ -37,18 +39,34 @@
         'views/pago_views.xml',
         'views/metodopago_views.xml',
         'views/compra_views.xml',
-        'views/menu.xml', 
+        'views/menu.xml',
+        'views/resena_views.xml',
+        'views/servicio_views.xml',
+        'views/tiposervicio_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/upobarber.horario.csv',
+        'demo/upobarber.resena.csv',
+        'demo/upobarber.servicio.csv',
+        'demo/upobarber.tiposervicio.csv',
         'demo/upobarber.cliente.csv',
-        'demo/upobarber.reserva.csv',
-        'demo/upobarber.cita.csv',
         'demo/upobarber.empleado.csv',
         'demo/upobarber.tipoproducto.csv',
         'demo/upobarber.producto.csv',
-        'demo/upobarber.articulo.csv',    
+        'demo/upobarber.reserva.csv',
+        'demo/upobarber.cita.csv',
+        'demo/upobarber.horario.csv',
+        'demo/upobarber.articulo.csv',
     ],
+    'assets':{
+        'web.assets_backend': [
+            'gym/static/src/components/*/*.js',
+            'gym/static/src/components/*/*.xml',
+            'gym/static/src/components/*/*.scss',
+            'upobarber/static/src/components/*/*.js',
+            'upobarber/static/src/components/*/*.xml',
+            'uposbarber/static/src/components/*/*.scss',
+        ],
+    },
     'application': True,
 }

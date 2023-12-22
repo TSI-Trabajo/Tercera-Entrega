@@ -11,3 +11,6 @@ from . import tipoproducto
 from . import compra
 from . import pago
 from . import metodopago
+from . import resena
+from . import servicio
+from . import tiposervicio

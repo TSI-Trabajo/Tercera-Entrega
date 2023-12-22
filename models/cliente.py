@@ -1,5 +1,6 @@
 from ctypes import sizeof
 from odoo import models, fields, api
+import re
 
 class Cliente(models.Model):
      _name = 'upobarber.cliente'
@@ -16,32 +17,28 @@ class Cliente(models.Model):
      reserva_id = fields.One2many("upobarber.reserva",'cliente_id',string="Reservas del Cliente")
      #compra_id = fields.Many2one("upobarber.citas",string="Confirmar cita")
      
-     def btn_verCitasPagadas(self):
-           citas_pagadas = self.env['upobarber.cita'].search([('cliente_id', '=', self.id), ('pagado', '=', True)])
+     _sql_constraints = [('cliente_name_unico','UNIQUE (name)','El DNI ya está registrado en nuestros datos')]
+     _sql_constraints = [('cliente_telefono_unico','UNIQUE (telefono)','El telefono ya está registrado en nuestros datos')]
+     _sql_constraints = [('cliente_correoElectronico_unico','UNIQUE (correoElectronico)','El correoElectronico ya está registrado en nuestros datos')]
      
-     def btn_verReservasPagadas(self):
-           citas_pagadas = self.env['upobarber.cita'].search([('cliente_id', '=', self.id), ('pagado', '=', True)])
+     def btn_verCitasPagadas(self):
+          citas_no_pagadas = self.env['upobarber.cita'].search([('cliente_id', '=', self.id), ('pagado', '=', False)])
+          citas_no_pagadas.unlink()
+     
+     def btn_generar_report(self):
+          return self.env.ref('upobarber.upobarber_cliente_template').report_action(self)
      
      @api.onchange('name')
-     def onchange_cliente(self):
-          resultado = {}
-          if self.name:
-               if len(self.name) != 9:
-                    resultado = {  'value': {'name':''}, 
-                                   'warning': { 'title':'Valores incorrectos', 'message':'El DNI debe tener 8 digitos y un caracter.'}
+     def _onchange_dni(self):
+        if self.name and not self._validar_dni():
+          resultado = {  'value': {'name':''}, 
+                                   'warning': { 'title':'Valores incorrectos', 'message':'El DNI debe tener 8 digitos y un caracter en MAYUSCULA.'}
                     }
-                    return resultado
-               if not self.name[:8].isdigit():
-                    resultado = {  'value': {'name':''}, 
-                                   'warning': { 'title':'Valores incorrectos', 'message':'El DNI debe comenzar por 8 números.'}
-                    }
-                    return resultado 
-               if not self.name[8].isalpha() or not self.name[8].isupper():
-                    resultado = {  'value': {'name':''}, 
-                                   'warning': { 'title':'Valores incorrectos', 'message':'El último carácter del DNI debe ser una letra en mayúscula.'}                              
-                    }
-                    return resultado
           return resultado
+     
+     def _validar_dni(self):
+        return bool(re.match(r'^\d{8}[A-Z]$', self.name))
+     
      
      @api.onchange('nombre')
      def onchange_cliente(self):
@@ -52,13 +49,6 @@ class Cliente(models.Model):
                }
                return resultado             
     
-     @api.onchange('telefono')
-     def onchange_cliente(self):
-          resultado = {}
-          if self.telefono.isdigit() or len(self.telefono) != 9:
-               resultado = {  'value': {'telefono':''}, 
-                              'warning': { 'title':'Valores incorrectos', 'message':'El telefono debe ser 9 números.'}
-               } 
-               return resultado
+
 
      

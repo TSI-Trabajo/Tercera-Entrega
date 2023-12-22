@@ -11,7 +11,7 @@
             <field name="horarioFin" />
             <field name="disponible" />
             <field name="empleado_dnis" widget="many2one" />
-            <field name="cita_ids" widget="many2one" />
+            <field name="cita_id" widget="many2one" />
             <newline></newline>
             <button name="btn_ocupar_horario" string="Disponible" type="object" class="oe_highlight" />
             <button name="btn_desocupar_horario" string="No disponible" type="object" class="oe_highlight" />
@@ -31,7 +31,7 @@
             <field name="horarioFin" />
             <field name="disponible" />
             <field name="empleado_dnis" widget="many2one" />
-            <field name="cita_ids" widget="many2one" />
+            <field name="cita_id" widget="many2one" />
       </tree>
     </field>
   </record>
@@ -42,7 +42,7 @@
     <field name="type">calendar</field>
     <field name="arch" type="xml">
       <calendar string="vista de calendario" quick_add="False" date_start="horarioInicio" date_stop="horarioFin" mode="week" color="empleado_dnis">
-        <field name="cita_ids"/>
+        <field name="cita_id"/>
         <field name="empleado_dnis"></field>
       </calendar>
     </field>

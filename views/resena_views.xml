@@ -1,0 +1,103 @@
+<odoo>
+    <record id="upobarber_resena_form_view" model="ir.ui.view">
+        <field name="name">upobarber.resena.form</field>
+        <field name="model">upobarber.resena</field>
+        <field name="arch" type="xml">
+            <form string="resena">
+                <sheet layout="auto">
+                    <group>
+                        <field name="resena_id"/>
+                        <field name="puntuacion" widget="rating"/>
+                        <field name="comentarios"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="upobarber_resena_tree_view" model="ir.ui.view">
+        <field name="name">upobarber.resena.tree</field>
+        <field name="model">upobarber.resena</field>
+        <field name="arch" type="xml">
+            <tree string="resena">
+                <field name="resena_id"/>
+                <field name="puntuacion" widget="rating"/>
+                <field name="comentarios"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="upobarber_resena_graph_view" model="ir.ui.view">
+        <field name="name">upobarber.resena.graph</field>
+        <field name="model">upobarber.resena</field>
+        <field name="arch" type="xml">
+            <graph type="bar">
+                <field name="puntuacion" type="row"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_upobarber_resena_kanban" model="ir.ui.view">
+        <field name="name">upobarber.resena.kanban</field>
+        <field name="model">upobarber.resena</field>
+        <field name="arch" type="xml">
+            <kanban class="o_service_kanban">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="resena_id"/>
+                                </strong>
+                                <div>Puntuacion:
+                                    <field name="puntuacion"/>
+                                </div>
+                                <div>Comentarios:
+                                    <field name="comentarios"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="upobarber_resena_search_view" model="ir.ui.view">
+        <field name="name">upobarber.resena.search</field>
+        <field name="model">upobarber.resena</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_puntuacion" string="Puntuacion" context="{'group_by': 'puntuacion'}"/>
+                </group>
+
+                <filter string="Puntuacion = 0" name="puntuacion_0" domain="[('puntuacion', '=', 0)]"/>
+                <filter string="Puntuacion = 1" name="puntuacion_1" domain="[('puntuacion', '=', 1)]"/>
+                <filter string="Puntuacion = 2" name="puntuacion_2" domain="[('puntuacion', '=', 2)]"/>
+                <filter string="Puntuacion = 3" name="puntuacion_3" domain="[('puntuacion', '=', 3)]"/>
+                <filter string="Puntuacion = 4" name="puntuacion_4" domain="[('puntuacion', '=', 4)]"/>
+                <filter string="Puntuacion = 5" name="puntuacion_5" domain="[('puntuacion', '=', 5)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="resena_list_action" model="ir.actions.act_window">
+        <field name="name">resena</field>
+        <field name="res_model">upobarber.resena</field>
+        <field name="search_view_id" ref="upobarber_resena_search_view"/>
+        <field name="view_mode">tree,form,graph,kanban</field>
+        <field name="view_id" ref="view_upobarber_resena_kanban"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Pone tu resena</p>
+        </field>
+    </record>
+
+
+    <record id="action_owl_tComponente_js" model="ir.actions.client">
+    <field name="name">tComponente OWL</field>
+    <field name="tag">owl.action_tComponente_js</field>
+  </record>
+
+</odoo>

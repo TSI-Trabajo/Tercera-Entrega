@@ -4,18 +4,21 @@
     <field name="model">upobarber.cita</field>
     <field name="arch" type="xml">
       <form string="cita">
+        <header>
+          <button name="btn_confimarCita" string="Confirmar Cita" type="object" class="oe_highlight" />
+        </header>
         <sheet layout="auto">
           <group>
-            <field name="name" />
+        <!--<field name="id" string="ID Cita" /> para que autogenerase los id`s; pero sino pierdo el name-->
+            <field name="name" /> 
             <field name="cliente_id" widget="many2one" />
-            <field name="nombre_del_cliente" />
             <field name="confirmada" />
             <field name="pagado" />
             <field name="reserva_id" widget="many2one" />
-            <field name="horario_id" widget="One2many" />
-            <!--  <field name="horario_ids" widget="One2many" />
+            <field name="horario_id" widget="one2many" />
+            <field name="pago_id" widget="one2many" />
+      <!--  <field name="horario_ids" widget="One2many" />
             <field name="tipo_Servicio" widget="Many2one" />
-            <field name="pago_id" widget="One2one" />
             <field name="reseña_ids" widget="Many2one" />  -->
           </group>
         </sheet>
@@ -28,20 +31,31 @@
     <field name="model">upobarber.cita</field>
     <field name="arch" type="xml">
       <tree string="cita">
+    <!--<field name="id" string="ID Cita" /> -->
         <field name="name" />
         <field name="cliente_id" widget="many2one" />
-        <field name="nombre_del_cliente" />
         <field name="confirmada" />
         <field name="pagado" />
         <field name="reserva_id" widget="many2one" />
-        <field name="horario_id" widget="One2many" />
-        <!--  <field name="horario_ids" widget="One2many" />
+        <field name="horario_id" widget="one2many" />
+        <field name="pago_id" widget="one2many" />
+  <!--  <field name="horario_ids" widget="One2many" />
         <field name="tipo_Servicio" widget="Many2one" />
-        <field name="pago_id" widget="One2one" />
         <field name="reseña_ids" widget="Many2one" />  -->
       </tree>
     </field>
   </record>
+
+  <record id="upobarber_cita_gantt" model="ir.ui.view">
+    <field name="name">upobarber.cita.gantt</field>
+    <field name="model">upobarber.cita</field>
+    <field name="arch" type="xml">
+      <gantt 
+        date_start="start_date" date_stop="end_date">
+      </gantt>
+    </field>
+  </record>
+
 
   <record id="upobarber_cita_search_view" model="ir.ui.view">
     <field name="name">upobarber.cita.search</field>
@@ -63,9 +77,9 @@
     <field name="name">cita</field>
     <field name="res_model">upobarber.cita</field>
     <field name="search_view_id" ref="upobarber_cita_search_view"/>
-    <field name="view_mode">tree,form</field>
+    <field name="view_mode">tree,form,gantt</field>
     <field name="help" type="html">
-      <p class="o_view_nocontent_smiling_face">Create the first user</p>
+      <p class="o_view_nocontent_smiling_face">Create the first appointment</p>
     </field>
   </record>
 
