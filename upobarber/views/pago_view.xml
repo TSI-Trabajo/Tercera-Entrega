@@ -98,8 +98,6 @@
     </field>
   </record>
 
-
-
   <record id="pago_list_action" model="ir.actions.act_window">
     <field name="name">Pago</field>
     <field name="res_model">upobarber.pago</field>
@@ -107,6 +105,11 @@
     <field name="help" type="html">
       <p class="o_view_nocontent_smiling_face">Realizar Pago</p>
     </field>
+  </record>
+
+  <record id="action_owl_jaComponente_js" model="ir.actions.pago">
+    <field name="name">jaComponente OWL</field>
+    <field name="tag">owl.action_jaComponente_js</field>
   </record>
 
 </odoo>

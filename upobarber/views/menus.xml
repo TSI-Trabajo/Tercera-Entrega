@@ -12,4 +12,8 @@
     <menuitem name="Articulo" id="articulo_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="articulo_list_action"/>
     <menuitem name="Producto" id="producto_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="producto_list_action"/>
     <menuitem name="Tipo Producto" id="tipoproducto_menu" parent="upobarber_menu" groups="group_upobarber_manager" action="tipoproducto_list_action"/>
+
+    <menuitem name="Pago OWL" id="pago_menu_owl" parent="upobarber_menu" groups="group_upobarber_manager" action="action_owl_jaComponente_js"/>
+    <menuitem name="Compra OWL" id="compra_menu_owl" parent="upobarber_menu" groups="group_upobarber_manager" action="action_owl_jaComponente_js"/>
+
 </odoo>

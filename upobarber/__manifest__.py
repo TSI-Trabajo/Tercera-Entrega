@@ -46,5 +46,12 @@
         'demo/upobarber.producto.csv',
         'demo/upobarber.articulo.csv',  
     ],
+    'assets':{
+    	'web.assets_backend': [
+            'gym/static/comp_jose_antonio/*/*.js',
+            'gym/static/comp_jose_antonio/*/*.xml',
+            'gym/static/comp_jose_antonio/*/*.scss',
+    	],
+    },
     'aplication': True,
 }

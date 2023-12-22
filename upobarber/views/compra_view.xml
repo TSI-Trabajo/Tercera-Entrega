@@ -8,9 +8,8 @@
 
         <header>
           <button name="btn_generate_report" string="Generar informe" type="object" class="oe_highlight" />
-          <!--Jose Luis-->
            <button name="action_confirmaCompra" string="Confirmar Compra" type="object" class="oe_highlight" />
-          <!--Jose Luis-->
+
         </header>
 
         <sheet layout="auto">
@@ -20,9 +19,6 @@
             <field name="fechaCompra" />
             <field name="pago_id" widget="many2one" />
             <field name="articulo_id" widget="many2many" />
-            <!--Jose Luis-->
-            
-            <!--Jose Luis-->
           </group>
         </sheet>
       </form>
@@ -106,4 +102,10 @@
         <p class="o_view_nocontent_smiling_face">Compra</p>
     </field>
 </record>
+
+  <record id="action_owl_jaComponente_js" model="ir.actions.compra">
+    <field name="name">jaComponente OWL</field>
+    <field name="tag">owl.action_jaComponente_js</field>
+  </record>
+
 </odoo>
